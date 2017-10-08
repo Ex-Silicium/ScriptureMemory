@@ -1,0 +1,21 @@
+buildscript {
+    ext {
+        butterKnifeVersion = '8.8.1'
+        espressoVersion = '3.0.1'
+        supportLibraryVersion = '26.1.0'
+    }
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0-beta7'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}

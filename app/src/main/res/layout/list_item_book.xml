@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/ll_list_item_book"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:attr/selectableItemBackground"
+              android:clickable="true"
+              android:focusable="true"
+              android:minHeight="@dimen/list_item_book_height_min"
+              android:paddingBottom="@dimen/list_item_padding"
+              android:paddingTop="@dimen/list_item_padding"
+    >
+
+    <View
+        android:id="@+id/view_color"
+        android:layout_width="@dimen/list_item_color_width"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/list_item_color_margin"
+        android:layout_marginEnd="@dimen/list_item_color_margin_end"
+        android:layout_marginStart="@dimen/list_item_color_margin"
+        android:layout_marginTop="@dimen/list_item_color_margin"
+        tools:background="@color/colorAccent"
+        />
+
+    <TextView
+        android:id="@+id/tv_book_name"
+        style="@style/list_item_text_primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        tools:text="Genesis"
+        />
+</LinearLayout>
