@@ -1,12 +1,12 @@
 package com.exsilicium.scripturememory
 
-import android.support.annotation.ColorRes
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.exsilicium.scripture.shared.model.Book
+import com.exsilicium.scripturememory.extensions.color
 import kotterknife.bindView
 
 internal class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -28,12 +28,7 @@ internal class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(book: Book) {
         this.book = book
-        colorView.setBackgroundColor(ContextCompat.getColor(colorView.context, getColorResForBook(book)))
+        colorView.setBackgroundColor(ContextCompat.getColor(colorView.context, book.color))
         bookTitleTextView.text = book.title
-    }
-
-    companion object {
-        @ColorRes private fun getColorResForBook(book: Book) =
-                if (book.isOldTestament()) R.color.colorAccent else R.color.colorPrimary
     }
 }
