@@ -1,15 +1,20 @@
 buildscript {
     ext {
-        espressoVersion = '3.0.1'
-        kotlinVersion = '1.1.51'
-        supportLibraryVersion = '26.1.0'
+        espressoVersion = '3.0.2-alpha1'
+        kotlinVersion = '1.2.21'
+        supportLibraryVersion = '27.0.2'
+        butterknifeVersion = '8.8.1'
+        conductorVersion = '2.1.4'
+        daggerVersion = '2.14.1'
+        rxAndroidVersion = '2.0.1'
+        timberVersion = '4.6.0'
     }
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-beta7'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -18,8 +23,8 @@ apply plugin: 'kotlin'
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 }
@@ -29,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 }
 
 compileKotlin {
