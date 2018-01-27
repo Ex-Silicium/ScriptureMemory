@@ -41,10 +41,15 @@ android {
     }
 
     def keystorePropertiesFile = rootProject.file("keystore.properties")
-    def keystoreProperties = new Properties()
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    def apiKey = "\"Your API Key here\""
+    try {
+        def keystoreProperties = new Properties()
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+        apiKey = keystoreProperties['EsvApiKey']
+    } catch (FileNotFoundException ignored) {
+    }
     buildTypes.each {
-        it.buildConfigField 'String', 'ESV_API_KEY', keystoreProperties['EsvApiKey']
+        it.buildConfigField 'String', 'ESV_API_KEY', apiKey
     }
 }
 
