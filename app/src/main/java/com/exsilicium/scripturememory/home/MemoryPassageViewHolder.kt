@@ -1,4 +1,4 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -28,8 +28,8 @@ class MemoryPassageViewHolder(
         reference.text = memoryPassage.scriptureReference.toString()
         content.text = memoryPassage.text
     }
-}
 
-interface MemoryPassageClickListener {
-    fun onClicked(memoryPassage: MemoryPassage)
+    interface MemoryPassageClickListener {
+        fun onClicked(memoryPassage: MemoryPassage)
+    }
 }

@@ -1,4 +1,4 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
 import com.exsilicium.scripturememory.model.MemoryPassage
 import io.reactivex.Single

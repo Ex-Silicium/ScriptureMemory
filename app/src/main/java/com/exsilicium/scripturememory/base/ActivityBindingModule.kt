@@ -2,8 +2,8 @@ package com.exsilicium.scripturememory.base
 
 import android.app.Activity
 import com.exsilicium.scripturememory.di.ActivityKey
-import com.exsilicium.scripturememory.memorypassage.MainActivity
-import com.exsilicium.scripturememory.memorypassage.MainActivityComponent
+import com.exsilicium.scripturememory.home.MainActivity
+import com.exsilicium.scripturememory.home.MainActivityComponent
 import dagger.Binds
 import dagger.Module
 import dagger.android.AndroidInjector

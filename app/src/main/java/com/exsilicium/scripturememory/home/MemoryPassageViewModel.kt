@@ -1,4 +1,4 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.di.ScreenScope

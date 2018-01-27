@@ -1,13 +1,14 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
-import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import butterknife.BindView
+import butterknife.OnClick
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.base.BaseController
+import com.exsilicium.scripturememory.picker.PassagePickerHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
@@ -51,5 +52,9 @@ class MemoryPassageController : BaseController() {
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         // todo Can I persist the adapter so I can save/restore scroll state?
         recyclerView.adapter = MemoryPassageAdapter(presenter)
+    }
+
+    @OnClick(R.id.fab) fun onClickFab() {
+        PassagePickerHelper.addPassage(router)
     }
 }

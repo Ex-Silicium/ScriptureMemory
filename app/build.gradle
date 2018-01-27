@@ -39,6 +39,13 @@ android {
             versionNameSuffix "-full"
         }
     }
+
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    buildTypes.each {
+        it.buildConfigField 'String', 'ESV_API_KEY', keystoreProperties['EsvApiKey']
+    }
 }
 
 dependencies {
@@ -56,6 +63,8 @@ dependencies {
 
     implementation 'com.exsilicium.scripture:scripture-core:0.1.1'
 
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
@@ -64,10 +73,16 @@ dependencies {
     implementation "com.jakewharton:butterknife:$butterknifeVersion"
     kapt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
     implementation 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
     implementation "com.jakewharton.timber:timber:$timberVersion"
 
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
 }
 
 dependencies {

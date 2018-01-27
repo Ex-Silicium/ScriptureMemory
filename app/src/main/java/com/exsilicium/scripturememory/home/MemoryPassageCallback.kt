@@ -1,4 +1,4 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
 import android.support.v7.util.DiffUtil
 import com.exsilicium.scripturememory.model.MemoryPassage
@@ -6,7 +6,7 @@ import com.exsilicium.scripturememory.model.MemoryPassage
 class MemoryPassageCallback(
         private val oldList: List<MemoryPassage>,
         private val newList: List<MemoryPassage>
-): DiffUtil.Callback() {
+) : DiffUtil.Callback() {
     override fun getOldListSize() = oldList.size
 
     override fun getNewListSize() = newList.size

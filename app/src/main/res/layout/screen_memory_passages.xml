@@ -16,6 +16,7 @@
         android:paddingBottom="48dp"
         android:paddingTop="6dp"
         tools:listitem="@layout/list_item_memory_passage"
+        tools:visibility="gone"
         />
 
     <TextView
@@ -25,7 +26,8 @@
         android:layout_gravity="center"
         android:text="@string/no_memory_passages"
         android:textColor="@android:color/white"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
     <ProgressBar
         android:id="@+id/progress_bar"

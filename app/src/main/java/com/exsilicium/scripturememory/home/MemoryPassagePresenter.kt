@@ -1,14 +1,17 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
+import android.content.Context
 import com.exsilicium.scripturememory.di.ScreenScope
+import com.exsilicium.scripturememory.helper.UiUtils
 import com.exsilicium.scripturememory.model.MemoryPassage
 import javax.inject.Inject
 
 @ScreenScope
 class MemoryPassagePresenter @Inject constructor(
+        private val context: Context,
         private val viewModel: MemoryPassageViewModel,
         private val memoryPassagesRequester: MemoryPassagesRequester
-) : MemoryPassageClickListener {
+) : MemoryPassageViewHolder.MemoryPassageClickListener {
 
     init {
         loadMemoryPassages()
@@ -22,6 +25,6 @@ class MemoryPassagePresenter @Inject constructor(
     }
 
     override fun onClicked(memoryPassage: MemoryPassage) {
-        TODO("Show memory passage detail screen")
+        UiUtils.notImplemented(context, "Show memory passage detail screen")
     }
 }

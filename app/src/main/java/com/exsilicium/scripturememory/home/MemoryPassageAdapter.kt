@@ -1,16 +1,16 @@
-package com.exsilicium.scripturememory.memorypassage
+package com.exsilicium.scripturememory.home
 
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.exsilicium.scripturememory.R
+import com.exsilicium.scripturememory.home.MemoryPassageViewHolder.MemoryPassageClickListener
 import com.exsilicium.scripturememory.model.MemoryPassage
 
 class MemoryPassageAdapter(
         private val clickListener: MemoryPassageClickListener
 ) : RecyclerView.Adapter<MemoryPassageViewHolder>() {
-
     private val data = mutableListOf<MemoryPassage>()
 
     init {
