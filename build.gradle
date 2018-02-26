@@ -7,17 +7,17 @@ buildscript {
         gsonVersion = '2.8.2'
         kotlinVersion = '1.2.21'
         retrofitVersion = '2.3.0'
-        rxAndroidVersion = '2.0.1'
-        rxJavaVersion = '2.1.9'
+        rxAndroidVersion = '2.0.2'
+        rxJavaVersion = '2.1.10'
         supportLibraryVersion = '27.0.2'
-        timberVersion = '4.6.0'
+        timberVersion = '4.6.1'
     }
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha04'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
