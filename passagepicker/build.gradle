@@ -31,7 +31,11 @@ dependencies {
     implementation project(':common')
     implementation project(':squaretextview')
 
+    // This is only needed because something else depends upon an out-dated version of support media app compat.
+    implementation deps.androidSupportMediaCompat
     implementation deps.androidSupportRecyclerView
+    // This is only needed because something else depends upon an out-dated version of support V4.
+    implementation deps.androidSupportV4
 
     kapt deps.butterknifeCompiler
     implementation deps.kotterknife
