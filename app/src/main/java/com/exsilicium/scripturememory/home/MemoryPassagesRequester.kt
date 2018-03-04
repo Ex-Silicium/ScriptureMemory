@@ -1,12 +1,11 @@
 package com.exsilicium.scripturememory.home
 
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.scripturememory.home.model.MemoryPassage
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class MemoryPassagesRequester @Inject constructor(
-
+internal class MemoryPassagesRequester @Inject constructor(
 ) {
     fun getMemoryPassages(): Single<List<MemoryPassage>> {
         return Single.just(emptyList<MemoryPassage>())

@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':common')
+    implementation project(':squaretextview')
+
+    implementation deps.androidSupportRecyclerView
+
+    kapt deps.butterknifeCompiler
+    implementation deps.kotterknife
+
+    kapt deps.daggerAndroidProcessor
+    kapt deps.daggerCompiler
+
+    implementation deps.rxAndroid
+    implementation deps.rxBinding
+    implementation deps.rxRelay
+}

@@ -3,12 +3,11 @@ package com.exsilicium.scripturememory.home
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
-import butterknife.ButterKnife
 import com.exsilicium.scripturememory.R
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.scripturememory.home.model.MemoryPassage
 import kotterknife.bindView
 
-class MemoryPassageViewHolder(
+internal class MemoryPassageViewHolder(
         itemView: View,
         private val clickListener: MemoryPassageClickListener
 ) : RecyclerView.ViewHolder(itemView) {
@@ -19,7 +18,6 @@ class MemoryPassageViewHolder(
     private val content: TextView by bindView(R.id.tv_passage_content)
 
     init {
-        ButterKnife.bind(this, itemView)
         itemView.setOnClickListener { memoryPassage?.let { clickListener.onClicked(it) } }
     }
 
@@ -29,7 +27,7 @@ class MemoryPassageViewHolder(
         content.text = memoryPassage.text
     }
 
-    interface MemoryPassageClickListener {
+    internal interface MemoryPassageClickListener {
         fun onClicked(memoryPassage: MemoryPassage)
     }
 }

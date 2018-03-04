@@ -1,13 +1,16 @@
 package com.exsilicium.scripturememory.home
 
 import android.content.Context
-import com.exsilicium.scripturememory.di.ScreenScope
-import com.exsilicium.scripturememory.helper.UiUtils
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.common.disposable.DisposableManager
+import com.exsilicium.common.utility.UiUtils
+import com.exsilicium.daggerextension.annotation.ForScreen
+import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.scripturememory.home.model.MemoryPassage
 import javax.inject.Inject
 
 @ScreenScope
-class MemoryPassagePresenter @Inject constructor(
+internal class MemoryPassagePresenter @Inject constructor(
+        @ForScreen private val disposableManager: DisposableManager,
         private val context: Context,
         private val viewModel: MemoryPassageViewModel,
         private val memoryPassagesRequester: MemoryPassagesRequester
@@ -18,10 +21,10 @@ class MemoryPassagePresenter @Inject constructor(
     }
 
     private fun loadMemoryPassages() {
-        memoryPassagesRequester.getMemoryPassages()
+        disposableManager.add(memoryPassagesRequester.getMemoryPassages()
                 .doOnSubscribe { viewModel.loadingUpdated().accept(true) }
                 .doOnEvent { _, _ -> viewModel.loadingUpdated().accept(false) }
-                .subscribe(viewModel.memoryPassagesUpdated(), viewModel.onError())
+                .subscribe(viewModel.memoryPassagesUpdated(), viewModel.onError()))
     }
 
     override fun onClicked(memoryPassage: MemoryPassage) {
