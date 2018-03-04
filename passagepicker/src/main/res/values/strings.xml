@@ -1,0 +1,4 @@
+<resources>
+    <string name="hint_filter_books">Filter Books</string>
+    <string name="no_books_for_format">No books match \'%s\'</string>
+</resources>

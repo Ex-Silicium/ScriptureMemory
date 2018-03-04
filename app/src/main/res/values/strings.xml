@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Scripture Memory</string>
-    <string name="abbreviations_format">Abbreviations: %s</string>
     <string name="error_loading_memory_passages">Error Loading Memory Passages</string>
     <string name="no_memory_passages">You don\'t have any memory passages yet</string>
-    <string name="hint_filter_books">Filter Books</string>
-    <string name="no_books_for_format">No books match \'%s\'</string>
 </resources>

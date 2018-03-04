@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.home.MemoryPassageViewHolder.MemoryPassageClickListener
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.scripturememory.home.model.MemoryPassage
 
-class MemoryPassageAdapter(
+internal class MemoryPassageAdapter(
         private val clickListener: MemoryPassageClickListener
 ) : RecyclerView.Adapter<MemoryPassageViewHolder>() {
     private val data = mutableListOf<MemoryPassage>()
@@ -17,15 +17,15 @@ class MemoryPassageAdapter(
         setHasStableIds(true)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) = MemoryPassageViewHolder(
-            LayoutInflater.from(parent?.context).inflate(R.layout.list_item_memory_passage, parent, false),
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MemoryPassageViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.list_item_memory_passage, parent, false),
             clickListener
     )
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: MemoryPassageViewHolder?, position: Int) {
-        holder?.bind(data[position])
+    override fun onBindViewHolder(holder: MemoryPassageViewHolder, position: Int) {
+        holder.bind(data[position])
     }
 
     override fun getItemId(position: Int) = data[position].id.toLong()

@@ -1,8 +1,8 @@
 package com.exsilicium.scripturememory.home
 
+import com.exsilicium.daggerextension.annotation.ScreenScope
 import com.exsilicium.scripturememory.R
-import com.exsilicium.scripturememory.di.ScreenScope
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.scripturememory.home.model.MemoryPassage
 import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer
@@ -10,20 +10,13 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @ScreenScope
-class MemoryPassageViewModel @Inject constructor(
+internal class MemoryPassageViewModel @Inject constructor(
 ) {
     private val loadingRelay = BehaviorRelay.create<Boolean>()
-    private val errorRelay = BehaviorRelay.create<Int>()
-    private val showAddButtonRelay = BehaviorRelay.create<Boolean>()
+    private val errorRelay = BehaviorRelay.createDefault(-1)
     private val memoryPassagesRelay = BehaviorRelay.create<List<MemoryPassage>>()
 
-    init {
-        showAddButtonRelay.accept(true)
-    }
-
     fun loading(): Observable<Boolean> = loadingRelay
-
-    fun showAddButton(): Observable<Boolean> = showAddButtonRelay
 
     fun memoryPassagesUpdates(): Observable<List<MemoryPassage>> = memoryPassagesRelay
 

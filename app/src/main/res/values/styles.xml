@@ -1,13 +1,7 @@
 <resources>
-
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="list_item_text_primary">
-        <item name="android:textSize">@dimen/list_item_text_size_primary</item>
-        <item name="android:textStyle">bold</item>
     </style>
 </resources>

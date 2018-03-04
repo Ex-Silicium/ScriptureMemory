@@ -1,9 +1,9 @@
 package com.exsilicium.scripturememory.home
 
 import android.support.v7.util.DiffUtil
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.scripturememory.home.model.MemoryPassage
 
-class MemoryPassageCallback(
+internal class MemoryPassageCallback(
         private val oldList: List<MemoryPassage>,
         private val newList: List<MemoryPassage>
 ) : DiffUtil.Callback() {

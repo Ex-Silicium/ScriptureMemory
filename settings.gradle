@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':squaretextview', ':screennavigator', ':daggerextension', ':common', ':network', ':passagepicker', ':passagedetail'
