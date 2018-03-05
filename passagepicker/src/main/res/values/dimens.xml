@@ -5,4 +5,5 @@
     <dimen name="list_item_color_margin">2dp</dimen>
     <dimen name="list_item_color_margin_end">8dp</dimen>
     <dimen name="text_size_chapter_number">24sp</dimen>
+    <dimen name="width_grid_chapter_list_item">60dp</dimen>
 </resources>

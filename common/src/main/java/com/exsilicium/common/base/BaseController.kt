@@ -8,13 +8,24 @@ import android.view.ViewGroup
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.bluelinelabs.conductor.Controller
+import com.bluelinelabs.conductor.ControllerChangeHandler
+import com.bluelinelabs.conductor.ControllerChangeType
 import com.exsilicium.common.dagger.Injector
+import com.exsilicium.common.screen.ScreenLifecycleTask
+import com.exsilicium.common.toolbar.ToolbarService
+import com.exsilicium.common.utility.ResourceRetriever
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import javax.inject.Inject
 
 abstract class BaseController(
         args: Bundle? = null
 ) : Controller(args) {
+
+    @Inject protected lateinit var resourceRetriever: ResourceRetriever
+    @Inject lateinit var toolbarService: ToolbarService
+    @Inject lateinit var lifecycleTasks: Set<@JvmSuppressWildcards ScreenLifecycleTask>
+
     private val disposables = CompositeDisposable()
 
     private var injected = false
@@ -24,6 +35,8 @@ abstract class BaseController(
 
     protected abstract fun onViewBound(view: View)
 
+    protected open fun title(): String? = null
+
     protected open fun subscriptions(): Array<Disposable> = arrayOf()
 
     final override fun onContextAvailable(context: Context) {
@@ -32,8 +45,12 @@ abstract class BaseController(
         if (!injected) {
             Injector.inject(this)
             injected = true
+            onInjected()
         }
         super.onContextAvailable(context)
+    }
+
+    open fun onInjected() {
     }
 
     final override fun onCreateView(inflater: LayoutInflater, container: ViewGroup): View {
@@ -41,15 +58,33 @@ abstract class BaseController(
         unbinder = ButterKnife.bind(this, view)
         onViewBound(view)
         disposables.addAll(* subscriptions())
+        title()?.let { toolbarService.updateTitle(it) }
         return view
+    }
+
+    final override fun onChangeStarted(changeHandler: ControllerChangeHandler, changeType: ControllerChangeType) {
+        super.onChangeStarted(changeHandler, changeType)
+        lifecycleTasks.forEach {
+            if (changeType.isEnter) {
+                it.onEnterScope(view!!)
+            } else {
+                it.onExitScope()
+            }
+        }
     }
 
     final override fun onDestroyView(view: View) {
         super.onDestroyView(view)
+        lifecycleTasks.forEach { it.onDestroyView(view) }
         disposables.clear()
         unbinder?.let {
             it.unbind()
             unbinder = null
         }
+    }
+
+    final override fun onDestroy() {
+        super.onDestroy()
+        lifecycleTasks.forEach { it.onDestroy() }
     }
 }

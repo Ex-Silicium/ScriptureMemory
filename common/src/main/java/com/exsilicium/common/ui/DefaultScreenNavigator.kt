@@ -1,10 +1,8 @@
 package com.exsilicium.common.ui
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.Router
-import com.bluelinelabs.conductor.RouterTransaction
 import com.exsilicium.common.R
 import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.extension.safeLet
@@ -16,16 +14,12 @@ import javax.inject.Inject
 
 @ActivityScope
 internal class DefaultScreenNavigator @Inject constructor(
-) : ScreenNavigator {
+) : ActivityLifecycleObserver(), ScreenNavigator {
 
-    private var activity: AppCompatActivity? = null
     private var router: Router? = null
 
-    override fun init(activity: AppCompatActivity, rootScreen: Controller) {
-        this.activity = activity
-        router = (activity as BaseActivity).router.apply {
-            if (!hasRootController()) setRoot(RouterTransaction.with(rootScreen))
-        }
+    override fun routerAttached() {
+        router = (activity as BaseActivity).router
     }
 
     override fun push(screenTransaction: ScreenTransaction) {
@@ -68,8 +62,8 @@ internal class DefaultScreenNavigator @Inject constructor(
 
     override fun backStackSize() = router?.backstackSize ?: -1
 
-    override fun clear() {
-        activity = null
+    override fun onActivityDestroyed() {
+        super.onActivityDestroyed()
         router = null
     }
 }

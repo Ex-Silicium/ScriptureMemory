@@ -22,11 +22,8 @@
 
         <activity
             android:name="com.exsilicium.passagepicker.PassagePickerActivity"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+                android:windowSoftInputMode="adjustResize" />
 
-        <activity
-            android:name="com.exsilicium.passagedetail.PassageDetailActivity">
-        </activity>
+        <activity android:name="com.exsilicium.passagedetail.PassageDetailActivity" />
     </application>
 </manifest>

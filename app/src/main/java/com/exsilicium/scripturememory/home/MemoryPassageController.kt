@@ -1,5 +1,6 @@
 package com.exsilicium.scripturememory.home
 
+import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -28,7 +29,14 @@ internal class MemoryPassageController : BaseController() {
     @BindView(R.id.recycler_view) lateinit var recyclerView: RecyclerView
     @BindView(R.id.fab) lateinit var addActionButton: FloatingActionButton
 
+    private lateinit var adapter: MemoryPassageAdapter
+
     override val layoutRes = R.layout.screen_memory_passages
+
+    override fun onInjected() {
+        super.onInjected()
+        adapter = MemoryPassageAdapter(presenter)
+    }
 
     override fun subscriptions(): Array<Disposable> {
         val loadingObservable = viewModel.loading().observeOn(AndroidSchedulers.mainThread())
@@ -40,6 +48,7 @@ internal class MemoryPassageController : BaseController() {
                 notLoadingObservable.subscribe(recyclerView.visibility()),
                 notLoadingObservable.subscribe(addActionButton.visibility()),
                 viewModel.memoryPassagesUpdates()
+                        .distinctUntilChanged()
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe { data ->
                             (recyclerView.adapter as MemoryPassageAdapter).setData(data)
@@ -52,7 +61,20 @@ internal class MemoryPassageController : BaseController() {
 
     override fun onViewBound(view: View) {
         recyclerView.layoutManager = LinearLayoutManager(view.context)
-        // todo Can I persist the adapter so I can save/restore scroll state?
-        recyclerView.adapter = MemoryPassageAdapter(presenter)
+        recyclerView.adapter = adapter
+    }
+
+    override fun onSaveViewState(view: View, outState: Bundle) {
+        super.onSaveViewState(view, outState)
+        outState.putParcelable(KEY_LIST_STATE, recyclerView.layoutManager.onSaveInstanceState())
+    }
+
+    override fun onRestoreViewState(view: View, savedViewState: Bundle) {
+        super.onRestoreViewState(view, savedViewState)
+        recyclerView.layoutManager.onRestoreInstanceState(savedViewState.getParcelable(KEY_LIST_STATE))
+    }
+
+    companion object {
+        private const val KEY_LIST_STATE = "listState"
     }
 }

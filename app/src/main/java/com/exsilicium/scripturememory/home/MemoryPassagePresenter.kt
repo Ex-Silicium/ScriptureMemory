@@ -21,10 +21,12 @@ internal class MemoryPassagePresenter @Inject constructor(
     }
 
     private fun loadMemoryPassages() {
-        disposableManager.add(memoryPassagesRequester.getMemoryPassages()
-                .doOnSubscribe { viewModel.loadingUpdated().accept(true) }
-                .doOnEvent { _, _ -> viewModel.loadingUpdated().accept(false) }
-                .subscribe(viewModel.memoryPassagesUpdated(), viewModel.onError()))
+        disposableManager.add(
+                memoryPassagesRequester.getMemoryPassages()
+                        .doOnSubscribe { viewModel.loadingUpdated().accept(true) }
+                        .doOnEvent { _, _ -> viewModel.loadingUpdated().accept(false) }
+                        .subscribe(viewModel.memoryPassagesUpdated(), viewModel.onError())
+        )
     }
 
     override fun onClicked(memoryPassage: MemoryPassage) {

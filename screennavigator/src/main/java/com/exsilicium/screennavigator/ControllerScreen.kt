@@ -8,11 +8,11 @@ import com.bluelinelabs.conductor.RouterTransaction
 
 data class ControllerScreen(
         val controller: Controller,
-        val pushChangeHandler: ControllerChangeHandler? = SlideChangeHandler(),
-        val popChangeHandler: ControllerChangeHandler? = SlideChangeHandler(),
-        val addToBackStack: Boolean = true,
-        val isRoot: Boolean = false,
-        val tag: String? = null
+        private val pushChangeHandler: ControllerChangeHandler? = SlideChangeHandler(),
+        private val popChangeHandler: ControllerChangeHandler? = SlideChangeHandler(),
+        private val addToBackStack: Boolean = true,
+        private val isRoot: Boolean = false,
+        private val tag: String? = null
 ) : Screen {
     override fun launchScreen(activity: Activity, router: Router, animationConfiguration: AnimationConfiguration) {
         if (isRoot) {

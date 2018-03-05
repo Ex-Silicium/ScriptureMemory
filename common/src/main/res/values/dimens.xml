@@ -2,4 +2,6 @@
 <resources>
     <dimen name="list_item_padding">2dp</dimen>
     <dimen name="list_item_text_size_primary">20sp</dimen>
+
+    <dimen name="elevation_app_bar">12dp</dimen>
 </resources>

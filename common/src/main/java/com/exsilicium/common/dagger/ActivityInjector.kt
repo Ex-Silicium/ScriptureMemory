@@ -5,7 +5,6 @@ import android.content.Context
 import android.util.ArrayMap
 import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.base.BaseApplication
-import com.exsilicium.daggerextension.plugin.ComponentLifecyclePlugin
 import dagger.android.AndroidInjector
 import javax.inject.Provider
 
