@@ -1,11 +1,11 @@
 package com.exsilicium.passagepicker.book
 
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import butterknife.BindView
-import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.exsilicium.common.base.BaseController
 import com.exsilicium.passagepicker.R
 import com.exsilicium.passagepicker.R2
@@ -24,6 +24,15 @@ internal class BookListController : BaseController() {
     @BindView(R2.id.tv_message) lateinit var errorMessage: TextView
 
     override val layoutRes = R.layout.screen_book_list_view
+
+    private lateinit var adapter: BookListAdapter
+
+    override fun title() = resourceRetriever.getString(R.string.select_book)
+
+    override fun onInjected() {
+        super.onInjected()
+        adapter = BookListAdapter(presenter)
+    }
 
     override fun subscriptions() = arrayOf(
             RxTextView.textChanges(filterBooks)
@@ -44,6 +53,7 @@ internal class BookListController : BaseController() {
                         errorMessage.text = applicationContext?.getString(R.string.no_books_for_format, filterTerm)
                     },
             viewModel.bookUpdates()
+                    .distinctUntilChanged()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
                         recyclerView.visibility = if (it.isEmpty()) View.GONE else View.VISIBLE
@@ -54,13 +64,20 @@ internal class BookListController : BaseController() {
 
     override fun onViewBound(view: View) {
         recyclerView.layoutManager = LinearLayoutManager(view.context)
-        recyclerView.adapter = BookListAdapter(presenter)
+        recyclerView.adapter = adapter
+    }
+
+    override fun onSaveViewState(view: View, outState: Bundle) {
+        super.onSaveViewState(view, outState)
+        outState.putParcelable(KEY_LIST_STATE, recyclerView.layoutManager.onSaveInstanceState())
+    }
+
+    override fun onRestoreViewState(view: View, savedViewState: Bundle) {
+        super.onRestoreViewState(view, savedViewState)
+        recyclerView.layoutManager.onRestoreInstanceState(savedViewState.getParcelable(KEY_LIST_STATE))
     }
 
     companion object {
-        fun addPassage() = BookListController().apply {
-            overridePushHandler(HorizontalChangeHandler())
-            overridePopHandler(HorizontalChangeHandler())
-        }
+        private const val KEY_LIST_STATE = "listState"
     }
 }

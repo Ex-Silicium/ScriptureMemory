@@ -1,10 +1,8 @@
-package com.exsilicium.scripturememory.activity
+package com.exsilicium.common.dagger
 
-import com.exsilicium.common.dagger.ActivityComponent
-import com.exsilicium.daggerextension.plugin.ComponentLifecyclePlugin
 import javax.inject.Inject
 
-internal class ActivityComponentLifecyclePlugin @Inject constructor(
+class ActivityComponentLifecyclePlugin @Inject constructor(
 ) : ComponentLifecyclePlugin {
     override fun componentCreated(componentId: String, component: Any) {
     }

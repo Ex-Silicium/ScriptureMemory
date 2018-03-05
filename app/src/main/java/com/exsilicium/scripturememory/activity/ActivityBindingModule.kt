@@ -1,6 +1,7 @@
 package com.exsilicium.scripturememory.activity
 
 import android.app.Activity
+import com.exsilicium.common.dagger.ActivityComponentLifecyclePlugin
 import com.exsilicium.common.dagger.ActivityInjector
 import com.exsilicium.passagedetail.PassageDetailActivity
 import com.exsilicium.passagedetail.PassageDetailActivityComponent

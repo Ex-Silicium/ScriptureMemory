@@ -8,8 +8,11 @@ import com.bluelinelabs.conductor.Router
 import com.exsilicium.common.R
 import com.exsilicium.common.dagger.Injector
 import com.exsilicium.common.dagger.ScreenInjector
+import com.exsilicium.common.ui.ActivityLifecycleObserver
 import com.exsilicium.screennavigator.ActivityScreen.Companion.EXTRA_BACK_ANIMATION
+import com.exsilicium.screennavigator.ControllerScreen
 import com.exsilicium.screennavigator.ScreenNavigator
+import com.exsilicium.screennavigator.ScreenTransaction
 import java.util.UUID
 import javax.inject.Inject
 
@@ -17,6 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @Inject lateinit var screenInjector: ScreenInjector
     @Inject lateinit var screenNavigator: ScreenNavigator
+    @Inject lateinit var lifecycleObservers: Set<@JvmSuppressWildcards ActivityLifecycleObserver>
 
     lateinit var instanceId: String
         private set
@@ -37,15 +41,20 @@ abstract class BaseActivity : AppCompatActivity() {
             savedInstanceState.getString(INSTANCE_ID_KEY)
         }
         Injector.inject(this)
+        super.onCreate(savedInstanceState)
+        lifecycleObservers.forEach { it.register(this) }
+
         setContentView(layoutRes)
         val screenContainer = findViewById<ViewGroup>(R.id.screen_container)
                 ?: throw NullPointerException("Activity must have a view with id: screen_container")
         router = Conductor.attachRouter(this, screenContainer, savedInstanceState)
         monitorBackStack()
 
-        screenNavigator.init(this, rootController)
+        lifecycleObservers.forEach { it.routerAttached() }
 
-        super.onCreate(savedInstanceState)
+        if (savedInstanceState == null) {
+            screenNavigator.push(ScreenTransaction(ControllerScreen(rootController, isRoot = true)))
+        }
 
         backAnimation = intent.getIntExtra(EXTRA_BACK_ANIMATION, -1)
         if (backAnimation == -1) {
@@ -66,7 +75,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     final override fun onDestroy() {
         super.onDestroy()
-        screenNavigator.clear()
         if (isFinishing) {
             Injector.clearComponent(this)
         }

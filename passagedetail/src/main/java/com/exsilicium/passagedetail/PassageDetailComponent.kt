@@ -1,5 +1,6 @@
 package com.exsilicium.passagedetail
 
+import com.exsilicium.common.dagger.ScreenModule
 import com.exsilicium.daggerextension.annotation.ScreenScope
 import com.exsilicium.passagedetail.service.PassageServiceModule
 import dagger.Subcomponent
@@ -8,7 +9,8 @@ import dagger.android.AndroidInjector
 @ScreenScope
 @Subcomponent(
         modules = [
-            PassageServiceModule::class
+            PassageServiceModule::class,
+            ScreenModule::class
         ]
 )
 internal interface PassageDetailComponent : AndroidInjector<PassageDetailController> {
