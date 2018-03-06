@@ -3,4 +3,5 @@
     <string name="no_books_for_format">No books match \'%s\'</string>
     <string name="select_book">Select Book</string>
     <string name="select_chapter_in_format">Select Chapter in %s</string>
+    <string name="select_verse_in_format">Select Verse in %s %d</string>
 </resources>

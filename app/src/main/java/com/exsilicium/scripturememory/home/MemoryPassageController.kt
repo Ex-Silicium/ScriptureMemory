@@ -19,7 +19,6 @@ import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 internal class MemoryPassageController : BaseController() {
-
     @Inject lateinit var presenter: MemoryPassagePresenter
     @Inject lateinit var viewModel: MemoryPassageViewModel
     @Inject lateinit var screenNavigator: ScreenNavigator

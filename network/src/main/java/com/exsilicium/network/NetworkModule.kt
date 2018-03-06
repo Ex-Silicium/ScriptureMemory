@@ -1,6 +1,6 @@
 package com.exsilicium.network
 
-import com.exsilicium.common.base.BaseApplication
+import android.content.Context
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -18,53 +18,47 @@ import javax.inject.Singleton
 class NetworkModule {
     @Provides
     @Singleton
-    internal fun provideHttpCache(app: BaseApplication) = Cache(app.cacheDir, 10 * 1024 * 1024)
+    internal fun provideHttpCache(appContext: Context) = Cache(appContext.cacheDir, 10 * 1024 * 1024)
 
     @Provides
     @Singleton
-    internal fun provideGson(): Gson {
-        return GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-    }
+    internal fun provideGson(): Gson = GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create()
 
     @Provides
     @Singleton
-    @Named(API_TOKEN)
+    @Named(KEY_API_TOKEN)
     internal fun provideApiToken() = BuildConfig.ESV_API_KEY
 
     @Provides
     @Singleton
     internal fun provideOkhttpClient(
             cache: Cache,
-            @Named(API_TOKEN) token: String
-    ): OkHttpClient {
-        return OkHttpClient.Builder()
-                .addInterceptor(
-                        { chain ->
-                            chain.proceed(
-                                    chain.request().newBuilder().addHeader(
-                                            "Authorization", "Token $token"
-                                    ).build()
-                            )
-                        }
-                )
-                .cache(cache)
-                .build()
-    }
+            @Named(KEY_API_TOKEN) token: String
+    ): OkHttpClient = OkHttpClient.Builder()
+            .addInterceptor(
+                    { chain ->
+                        chain.proceed(
+                                chain.request().newBuilder().addHeader(
+                                        "Authorization", "Token $token"
+                                ).build()
+                        )
+                    }
+            )
+            .cache(cache)
+            .build()
 
     @Provides
     @Singleton
-    internal fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl("https://api.esv.org/v3/")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(okHttpClient)
-                .build()
-    }
+    internal fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .baseUrl("https://api.esv.org/v3/")
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(okHttpClient)
+            .build()
 
     internal companion object {
-        private const val API_TOKEN = "API_TOKEN"
+        private const val KEY_API_TOKEN = "KEY_API_TOKEN"
     }
 }

@@ -5,6 +5,7 @@ import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.base.BaseController
 import com.exsilicium.passagepicker.book.BookListController
 import com.exsilicium.passagepicker.chapter.ChapterListController
+import com.exsilicium.passagepicker.verse.VerseListController
 import com.exsilicium.screennavigator.ActivityScreen
 import com.exsilicium.screennavigator.ControllerScreen
 import com.exsilicium.screennavigator.ScreenNavigator
@@ -19,11 +20,15 @@ class PassagePickerActivity : BaseActivity() {
     companion object {
         fun addPassage(screenNavigator: ScreenNavigator) {
             // todo add intent processor / result code
-            screenNavigator.push(ScreenTransaction(ActivityScreen(PassagePickerActivity::class.java)))
+            screenNavigator.push(ScreenTransaction(ActivityScreen(PassagePickerActivity::class)))
         }
 
         fun addPassageFromBook(screenNavigator: ScreenNavigator, book: Book) {
             screenNavigator.push(ScreenTransaction(ControllerScreen(ChapterListController.addPassage(book))))
+        }
+
+        fun addPassageFromChapter(screenNavigator: ScreenNavigator, book: Book, chapter: Int) {
+            screenNavigator.push(ScreenTransaction(ControllerScreen(VerseListController.addPassage(book, chapter))))
         }
     }
 }

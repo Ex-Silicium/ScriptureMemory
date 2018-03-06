@@ -1,13 +1,14 @@
 package com.exsilicium.passagedetail.service
 
+import com.exsilicium.daggerextension.annotation.ScreenScope
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import javax.inject.Singleton
 
 @Module
-internal class PassageServiceModule {
+internal object PassageServiceModule {
     @Provides
-    @Singleton
-    internal fun providePassageService(retrofit: Retrofit) = retrofit.create(PassageService::class.java)
+    @ScreenScope
+    @JvmStatic
+    fun providePassageService(retrofit: Retrofit) = retrofit.create(PassageService::class.java)!!
 }

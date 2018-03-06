@@ -11,14 +11,11 @@ internal class ChapterListViewHolder(
         private val clickListener: OnChapterClickListener
 ) : RecyclerView.ViewHolder(itemView) {
 
-    private val chapterNumber: TextView by bindView(R.id.tv_chapter_number)
-
-    private var chapter: Int = 0
+    private val chapterNumber: TextView by bindView(R.id.tv_number)
 
     fun bind(chapter: Int) {
-        this.chapter = chapter
         chapterNumber.text = (chapter + 1).toString()
-        chapterNumber.setOnClickListener { clickListener.onClick(chapter) }
+        chapterNumber.setOnClickListener { clickListener.onClick(chapter + 1) }
     }
 
     internal interface OnChapterClickListener {
