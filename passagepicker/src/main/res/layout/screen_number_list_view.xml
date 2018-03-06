@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_recycler_view"
     app:layoutManager="android.support.v7.widget.GridLayoutManager"
-    tools:listitem="@layout/list_item_chapter"
-    tools:spanCount="5"/>
+    tools:listitem="@layout/list_item_number"
+    tools:spanCount="5" />

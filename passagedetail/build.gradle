@@ -30,4 +30,11 @@ dependencies {
 
     implementation project(':common')
     implementation project(':network')
+
+    kapt deps.butterknifeCompiler
+    kapt deps.daggerCompiler
+
+    implementation deps.rxAndroid
+    implementation deps.rxBinding
+    implementation deps.rxRelay
 }

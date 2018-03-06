@@ -5,10 +5,10 @@ import android.support.annotation.DimenRes
 import android.support.annotation.VisibleForTesting
 import com.exsilicium.common.extension.safeLet
 import com.exsilicium.common.utility.ResourceRetriever
+import com.exsilicium.daggerextension.annotation.ActivityScope
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
+@ActivityScope
 class GridHelper @Inject constructor(
         private val resourceRetriever: ResourceRetriever
 ) : ActivityLifecycleObserver() {

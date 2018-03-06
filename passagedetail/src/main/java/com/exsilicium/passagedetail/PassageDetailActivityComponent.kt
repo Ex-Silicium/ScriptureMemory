@@ -4,6 +4,10 @@ import com.exsilicium.common.dagger.ActivityComponent
 import com.exsilicium.common.dagger.ActivityModule
 import com.exsilicium.common.ui.NavigationModule
 import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.scripture.shared.model.Book
+import com.exsilicium.scripture.shared.model.ScriptureReference
+import com.exsilicium.scripture.shared.model.Verse
+import dagger.BindsInstance
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
@@ -17,5 +21,15 @@ import dagger.android.AndroidInjector
 )
 interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivity> {
     @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<PassageDetailActivity>()
+    abstract class Builder : AndroidInjector.Builder<PassageDetailActivity>() {
+        @BindsInstance
+        abstract fun reference(scriptureReference: ScriptureReference)
+
+        override fun seedInstance(instance: PassageDetailActivity) {
+            val book = Book.values()[instance.intent.getIntExtra(PassageDetailController.KEY_BOOK_ORDINAL, 0)]
+            val chapter = instance.intent.getIntExtra(PassageDetailController.KEY_CHAPTER, 0)
+            val verseNumber = instance.intent.getIntExtra(PassageDetailController.KEY_VERSE, 0)
+            reference(ScriptureReference(book, Verse(chapter, verseNumber)))
+        }
+    }
 }

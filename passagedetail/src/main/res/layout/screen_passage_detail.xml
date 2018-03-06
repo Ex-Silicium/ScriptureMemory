@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/old_paper"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_passage_content"
+        android:layout_margin="10dp"
+        tools:text="There is therefore now no condemnation for those who are in Christ Jesus."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_grey"
+        android:textSize="@dimen/text_size_memory_passage_content"
+        style="@style/TextAppearance.AppCompat" />
 </android.support.design.widget.CoordinatorLayout>

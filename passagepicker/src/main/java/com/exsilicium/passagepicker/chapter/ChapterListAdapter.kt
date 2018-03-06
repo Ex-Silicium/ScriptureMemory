@@ -16,7 +16,7 @@ internal class ChapterListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChapterListViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item_chapter, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item_number, parent, false)
         return ChapterListViewHolder(itemView, clickListener)
     }
 

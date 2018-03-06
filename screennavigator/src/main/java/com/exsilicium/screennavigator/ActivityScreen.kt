@@ -5,9 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityOptionsCompat.makeCustomAnimation
 import com.bluelinelabs.conductor.Router
+import kotlin.reflect.KClass
 
 data class ActivityScreen(
-        private val activityClass: Class<out Activity>,
+        private val activityClass: KClass<out Activity>,
         private val args: Bundle? = null,
         private val intentProcessor: IntentProcessor? = null,
         private val requestCode: Int? = null
@@ -18,7 +19,7 @@ data class ActivityScreen(
             router: Router,
             animationConfiguration: AnimationConfiguration
     ) {
-        val intent = Intent(activity, activityClass)
+        val intent = Intent(activity, activityClass.java)
 
         if (args != null) {
             intent.putExtras(args)

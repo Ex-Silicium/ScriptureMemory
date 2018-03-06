@@ -3,6 +3,7 @@ package com.exsilicium.scripturememory.activity
 import android.app.Activity
 import com.exsilicium.common.dagger.ActivityComponentLifecyclePlugin
 import com.exsilicium.common.dagger.ActivityInjector
+import com.exsilicium.common.ui.ActivityStarter
 import com.exsilicium.passagedetail.PassageDetailActivity
 import com.exsilicium.passagedetail.PassageDetailActivityComponent
 import com.exsilicium.passagepicker.PassagePickerActivity
@@ -47,6 +48,11 @@ internal abstract class ActivityBindingModule {
     abstract fun providePassagePickerActivityInjector(
             builder: PassagePickerActivityComponent.Builder
     ): AndroidInjector.Factory<out Activity>
+
+    @Binds
+    abstract fun provideActivityStarter(
+            defaultActivityStarter: DefaultActivityStarter
+    ): ActivityStarter
 
     @Module
     companion object {

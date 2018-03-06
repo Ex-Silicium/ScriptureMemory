@@ -2,22 +2,21 @@ package com.exsilicium.screennavigator
 
 import android.app.Activity
 import android.os.Bundle
+import kotlin.reflect.KClass
 
 data class ScreenTransaction(
         val screen: Screen,
         val animationConfiguration: AnimationConfiguration = AnimationConfiguration.slideIn()
 ) {
     companion object {
-        fun forActivity(activityClass: Class<out Activity>): ScreenTransaction {
-            return ScreenTransaction(ActivityScreen(activityClass))
+        fun forActivity(activityClass: KClass<out Activity>): ScreenTransaction {
+            return withActivityScreen(ActivityScreen(activityClass))
         }
 
-        fun forActivity(activityClass: Class<out Activity>, args: Bundle): ScreenTransaction {
-            return ScreenTransaction(ActivityScreen(activityClass, args))
+        fun forActivity(activityClass: KClass<out Activity>, args: Bundle): ScreenTransaction {
+            return withActivityScreen(ActivityScreen(activityClass, args))
         }
 
-        fun withActivityScreen(activityScreen: ActivityScreen): ScreenTransaction {
-            return ScreenTransaction(activityScreen)
-        }
+        fun withActivityScreen(activityScreen: ActivityScreen) = ScreenTransaction(activityScreen)
     }
 }
