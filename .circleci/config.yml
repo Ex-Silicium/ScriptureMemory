@@ -49,3 +49,17 @@ jobs:
           destination: reports/squaretextview
       - store_test_results:
           path: app/build/test-results
+      - store_test_results:
+          path: common/build/test-results
+      - store_test_results:
+          path: daggerextension/build/test-results
+      - store_test_results:
+          path: network/build/test-results
+      - store_test_results:
+          path: passagedetail/build/test-results
+      - store_test_results:
+          path: passagepicker/build/test-results
+      - store_test_results:
+          path: screennavigator/build/test-results
+      - store_test_results:
+          path: squaretextview/build/test-results

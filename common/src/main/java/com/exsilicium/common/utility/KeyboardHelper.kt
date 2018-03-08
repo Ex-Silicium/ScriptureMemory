@@ -7,15 +7,11 @@ import android.view.inputmethod.InputMethodManager
 import com.exsilicium.common.extension.safeLet
 
 object KeyboardHelper {
-    fun hideKeyboard(view: View?) {
-        hideKeyboard(view?.context, view)
-    }
-
     fun hideKeyboard(activity: AppCompatActivity) {
-        hideKeyboard(activity, activity.currentFocus)
+        hideKeyboard(activity.currentFocus, activity)
     }
 
-    private fun hideKeyboard(context: Context?, view: View?) {
+    private fun hideKeyboard(view: View?, context: Context? = view?.context) {
         safeLet(context, view) { safeContext, safeView ->
             val inputMethodManager = safeContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(safeView.windowToken, 0)

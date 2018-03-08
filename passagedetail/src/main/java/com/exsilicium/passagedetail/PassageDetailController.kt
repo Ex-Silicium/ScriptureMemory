@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 internal class PassageDetailController : BaseController() {
     @Inject lateinit var scriptureReference: ScriptureReference
+    @Suppress("unused")
     @Inject lateinit var presenter: PassageDetailPresenter
     @Inject lateinit var viewModel: PassageDetailViewModel
 

@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.bluelinelabs.conductor.Controller
-import com.bluelinelabs.conductor.ControllerChangeHandler
-import com.bluelinelabs.conductor.ControllerChangeType
 import com.exsilicium.common.dagger.Injector
-import com.exsilicium.common.screen.ScreenLifecycleTask
 import com.exsilicium.common.toolbar.ToolbarService
 import com.exsilicium.common.utility.ResourceRetriever
 import io.reactivex.disposables.CompositeDisposable
@@ -24,7 +21,6 @@ abstract class BaseController(
 
     @Inject protected lateinit var resourceRetriever: ResourceRetriever
     @Inject lateinit var toolbarService: ToolbarService
-    @Inject lateinit var lifecycleTasks: Set<@JvmSuppressWildcards ScreenLifecycleTask>
 
     private val disposables = CompositeDisposable()
 
@@ -62,29 +58,12 @@ abstract class BaseController(
         return view
     }
 
-    final override fun onChangeStarted(changeHandler: ControllerChangeHandler, changeType: ControllerChangeType) {
-        super.onChangeStarted(changeHandler, changeType)
-        lifecycleTasks.forEach {
-            if (changeType.isEnter) {
-                it.onEnterScope(view!!)
-            } else {
-                it.onExitScope()
-            }
-        }
-    }
-
     final override fun onDestroyView(view: View) {
         super.onDestroyView(view)
-        lifecycleTasks.forEach { it.onDestroyView(view) }
         disposables.clear()
         unbinder?.let {
             it.unbind()
             unbinder = null
         }
-    }
-
-    final override fun onDestroy() {
-        super.onDestroy()
-        lifecycleTasks.forEach { it.onDestroy() }
     }
 }
