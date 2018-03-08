@@ -1,6 +1,8 @@
 <resources>
 
-    <style name="list_item_text_primary">
+    <style name="ListItemText" parent="TextAppearance.AppCompat" />
+
+    <style name="ListItemText.Primary">
         <item name="android:textSize">@dimen/list_item_text_size_primary</item>
         <item name="android:textStyle">bold</item>
     </style>

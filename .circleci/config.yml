@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: circleci/android:api-27-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -18,10 +18,34 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Run Tests
+          name: Run Lint
           command: ./gradlew lint test
+      - run:
+          name: Run Tests
+          command: ./gradlew test
       - store_artifacts:
           path: app/build/reports
-          destination: reports
+          destination: reports/app
+      - store_artifacts:
+          path: common/build/reports
+          destination: reports/common
+      - store_artifacts:
+          path: daggerextension/build/reports
+          destination: reports/daggerextension
+      - store_artifacts:
+          path: network/build/reports
+          destination: reports/network
+      - store_artifacts:
+          path: passagedetail/build/reports
+          destination: reports/passagedetail
+      - store_artifacts:
+          path: passagepicker/build/reports
+          destination: reports/passagepicker
+      - store_artifacts:
+          path: screennavigator/build/reports
+          destination: reports/screennavigator
+      - store_artifacts:
+          path: squaretextview/build/reports
+          destination: reports/squaretextview
       - store_test_results:
           path: app/build/test-results
