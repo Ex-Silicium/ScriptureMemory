@@ -15,6 +15,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    lintOptions {
+        baseline file("lint-baseline.xml")
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -23,6 +27,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+    libraryVariants.all {
+        it.generateBuildConfig.enabled = false
+    }
 }
 
 dependencies {
@@ -30,11 +39,16 @@ dependencies {
 
     implementation project(':common')
     implementation project(':network')
+    implementation project(':screennavigator')
 
+    implementation deps.butterknife
     kapt deps.butterknifeCompiler
+
     kapt deps.daggerCompiler
 
     implementation deps.rxAndroid
     implementation deps.rxBinding
     implementation deps.rxRelay
+
+    implementation deps.scriptureCore
 }

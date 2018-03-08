@@ -15,6 +15,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    lintOptions {
+        baseline file("lint-baseline.xml")
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -23,12 +27,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+    libraryVariants.all {
+        it.generateBuildConfig.enabled = false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':common')
+    implementation project(':screennavigator')
     implementation project(':squaretextview')
 
     // This is only needed because something else depends upon an out-dated version of support media app compat.
@@ -37,6 +47,7 @@ dependencies {
     // This is only needed because something else depends upon an out-dated version of support V4.
     implementation deps.androidSupportV4
 
+    implementation deps.butterknife
     kapt deps.butterknifeCompiler
     implementation deps.kotterknife
 
@@ -46,4 +57,6 @@ dependencies {
     implementation deps.rxAndroid
     implementation deps.rxBinding
     implementation deps.rxRelay
+
+    implementation deps.scriptureCore
 }

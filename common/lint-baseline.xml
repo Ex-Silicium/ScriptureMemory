@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 3.2.0-alpha04">
+
+    <issue id="ObsoleteLintCustomCheck"
+        message="Lint found one or more custom checks that could not be loaded. The most likely reason for this is that it is using an older, incompatible or unsupported API in lint. Make sure these lint checks are updated to the new APIs. The issue registry class is com.bluelinelabs.conductor.lint.IssueRegistry. The class loading issue is com/android/tools/lint/detector/api/Detector$JavaPsiScanner: ClassLoader.defineClass1(ClassLoader.java:-2)←ClassLoader.defineClass(ClassLoader.java:763)←ClassLoader.defineClass(ClassLoader.java:642)←UrlClassLoader._defineClass(UrlClassLoader.java:276)←UrlClassLoader.defineClass(UrlClassLoader.java:272)←UrlClassLoader.findClass(UrlClassLoader.java:226)←ClassLoader.loadClass(ClassLoader.java:424)←ClassLoader.loadClass(ClassLoader.java:357)">
+        <location
+            file="../../../../../.gradle/caches/transforms-1/files-1.1/conductor-2.1.4.aar/741045a46a6bb1afed2994c67744879a/jars/lint.jar" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.layout.activity_home` appears to be unused"
+        errorLine1="&lt;android.support.design.widget.CoordinatorLayout" errorLine2="^">
+        <location file="src/main/res/layout/activity_home.xml" line="2" column="1" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.color.colorPrimaryDark` appears to be unused"
+        errorLine1="    &lt;color name=&quot;colorPrimaryDark&quot;>#C43c00&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/colors.xml" line="4" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.color.white` appears to be unused"
+        errorLine1="    &lt;color name=&quot;white&quot;>#FFF&lt;/color>" errorLine2="           ~~~~~~~~~~~~">
+        <location file="src/main/res/values/colors.xml" line="6" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.color.text_fail_red` appears to be unused"
+        errorLine1="    &lt;color name=&quot;text_fail_red&quot;>#b9c62828&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/colors.xml" line="8" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.color.text_grey` appears to be unused"
+        errorLine1="    &lt;color name=&quot;text_grey&quot;>#584C46&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/colors.xml" line="9" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.color.old_paper` appears to be unused"
+        errorLine1="    &lt;color name=&quot;old_paper&quot;>#F8ECC2&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/colors.xml" line="10" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.dimen.elevation_app_bar` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;elevation_app_bar&quot;>12dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/dimens.xml" line="3" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.dimen.list_item_padding` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;list_item_padding&quot;>2dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/dimens.xml" line="5" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.dimen.list_item_text_size_primary` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;list_item_text_size_primary&quot;>20sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/dimens.xml" line="6" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.dimen.text_size_memory_passage_content` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_size_memory_passage_content&quot;>18sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/dimens.xml" line="8" column="12" />
+    </issue>
+
+    <issue id="UnusedResources" message="The resource `R.style.AppTheme.AppBarOverlay` appears to be unused"
+        errorLine1="    &lt;style name=&quot;AppTheme.AppBarOverlay&quot; parent=&quot;ThemeOverlay.AppCompat.Dark.ActionBar&quot; />"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location file="src/main/res/values/styles.xml" line="3" column="12" />
+    </issue>
+
+</issues>

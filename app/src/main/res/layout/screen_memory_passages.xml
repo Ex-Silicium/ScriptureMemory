@@ -16,8 +16,7 @@
         android:paddingBottom="48dp"
         android:paddingTop="6dp"
         tools:listitem="@layout/list_item_memory_passage"
-        tools:visibility="gone"
-        />
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_message"
@@ -25,16 +24,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/no_memory_passages"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -43,7 +42,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
-        android:tint="@android:color/white"
-        app:fabSize="normal"
-        />
+        android:tint="@color/white"
+        app:fabSize="normal" />
 </android.support.design.widget.CoordinatorLayout>
