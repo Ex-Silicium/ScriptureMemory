@@ -7,6 +7,7 @@ import dagger.Provides
 
 @Module
 class ApplicationModule(private val application: Application) {
+
     @Provides
     fun provideAppContext(): Context = application
 }

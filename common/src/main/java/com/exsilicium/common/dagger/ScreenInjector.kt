@@ -5,7 +5,7 @@ import android.util.ArrayMap
 import com.bluelinelabs.conductor.Controller
 import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.base.BaseController
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import dagger.android.AndroidInjector
 import javax.inject.Inject
 import javax.inject.Provider
@@ -15,12 +15,11 @@ class ScreenInjector @Inject constructor(
         private val screenInjectors: Map<Class<out Controller>,
                 @JvmSuppressWildcards Provider<AndroidInjector.Factory<out Controller>>>
 ) {
+
     private val cache: MutableMap<String, AndroidInjector<Controller>> = ArrayMap()
 
     fun inject(controller: Controller) {
-        if (controller !is BaseController) {
-            throw IllegalArgumentException("Controller must extend BaseController")
-        }
+        if (controller !is BaseController) throw IllegalArgumentException("Controller must extend BaseController")
         val instanceId = controller.instanceId
         if (instanceId in cache) {
             cache[instanceId]?.inject(controller)
@@ -39,9 +38,7 @@ class ScreenInjector @Inject constructor(
 
     companion object {
         fun get(activity: Activity): ScreenInjector {
-            if (activity !is BaseActivity) {
-                throw IllegalArgumentException("Activity must extend BaseActivity")
-            }
+            if (activity !is BaseActivity) throw IllegalArgumentException("Activity must extend BaseActivity")
             return activity.screenInjector
         }
     }

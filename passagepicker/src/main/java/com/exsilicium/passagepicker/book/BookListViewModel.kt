@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 internal class BookListViewModel @Inject constructor(
 ) {
+
     private val booksRelay = BehaviorRelay.create<List<Book>>()
     private val filterBooksRelay = BehaviorRelay.create<CharSequence>()
 

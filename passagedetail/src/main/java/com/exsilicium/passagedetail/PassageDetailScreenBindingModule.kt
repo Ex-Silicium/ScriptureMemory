@@ -13,6 +13,7 @@ import dagger.multibindings.IntoMap
         ]
 )
 internal abstract class PassageDetailScreenBindingModule {
+
     @Binds
     @IntoMap
     @ControllerKey(PassageDetailController::class)

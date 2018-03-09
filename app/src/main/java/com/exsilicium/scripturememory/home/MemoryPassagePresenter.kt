@@ -3,8 +3,8 @@ package com.exsilicium.scripturememory.home
 import android.content.Context
 import com.exsilicium.common.disposable.DisposableManager
 import com.exsilicium.common.utility.UiUtils
-import com.exsilicium.daggerextension.annotation.ForScreen
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ForScreen
+import com.exsilicium.daggerannotations.ScreenScope
 import com.exsilicium.scripturememory.home.model.MemoryPassage
 import javax.inject.Inject
 

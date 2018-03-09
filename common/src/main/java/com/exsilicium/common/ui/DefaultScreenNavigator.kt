@@ -7,7 +7,7 @@ import com.exsilicium.common.R
 import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.extension.safeLet
 import com.exsilicium.common.utility.KeyboardHelper
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import com.exsilicium.screennavigator.ScreenNavigator
 import com.exsilicium.screennavigator.ScreenTransaction
 import javax.inject.Inject
@@ -41,7 +41,11 @@ internal class DefaultScreenNavigator @Inject constructor(
 
     override fun popToHome() {
         activity?.let {
-            if (it is BaseActivity && it.isRoot) popToRoot() else it.finish()
+            if (it is BaseActivity && it.isRoot) {
+                popToRoot()
+            } else {
+                it.finish()
+            }
         }
     }
 

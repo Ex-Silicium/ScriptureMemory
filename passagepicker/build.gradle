@@ -1,7 +1,9 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id "com.android.library"
+    id "com.jakewharton.butterknife"
+    id "org.jetbrains.kotlin.android"
+    id "org.jetbrains.kotlin.kapt"
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion

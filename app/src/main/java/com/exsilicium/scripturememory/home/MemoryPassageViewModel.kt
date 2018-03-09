@@ -1,6 +1,6 @@
 package com.exsilicium.scripturememory.home
 
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.home.model.MemoryPassage
 import com.jakewharton.rxrelay2.BehaviorRelay
@@ -12,6 +12,7 @@ import javax.inject.Inject
 @ScreenScope
 internal class MemoryPassageViewModel @Inject constructor(
 ) {
+
     private val loadingRelay = BehaviorRelay.create<Boolean>()
     private val errorRelay = BehaviorRelay.createDefault(-1)
     private val memoryPassagesRelay = BehaviorRelay.create<List<MemoryPassage>>()

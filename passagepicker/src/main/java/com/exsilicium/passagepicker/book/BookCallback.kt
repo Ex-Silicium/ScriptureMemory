@@ -7,6 +7,7 @@ internal class BookCallback(
         private val oldList: List<Book>,
         private val newList: List<Book>
 ) : DiffUtil.Callback() {
+
     override fun getOldListSize() = oldList.size
 
     override fun getNewListSize() = newList.size

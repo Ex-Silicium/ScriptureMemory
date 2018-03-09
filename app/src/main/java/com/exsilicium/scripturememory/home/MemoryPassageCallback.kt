@@ -7,6 +7,7 @@ internal class MemoryPassageCallback(
         private val oldList: List<MemoryPassage>,
         private val newList: List<MemoryPassage>
 ) : DiffUtil.Callback() {
+
     override fun getOldListSize() = oldList.size
 
     override fun getNewListSize() = newList.size

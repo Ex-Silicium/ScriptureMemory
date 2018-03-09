@@ -1,7 +1,7 @@
 include ':app',
         ':squaretextview',
         ':screennavigator',
-        ':daggerextension',
+        ':daggerannotations',
         ':common',
         ':network',
         ':passagepicker',

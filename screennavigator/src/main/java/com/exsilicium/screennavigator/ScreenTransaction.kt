@@ -8,12 +8,9 @@ data class ScreenTransaction(
         val screen: Screen,
         val animationConfiguration: AnimationConfiguration = AnimationConfiguration.slideIn()
 ) {
-    companion object {
-        fun forActivity(activityClass: KClass<out Activity>): ScreenTransaction {
-            return withActivityScreen(ActivityScreen(activityClass))
-        }
 
-        fun forActivity(activityClass: KClass<out Activity>, args: Bundle): ScreenTransaction {
+    companion object {
+        fun forActivity(activityClass: KClass<out Activity>, args: Bundle? = null): ScreenTransaction {
             return withActivityScreen(ActivityScreen(activityClass, args))
         }
 

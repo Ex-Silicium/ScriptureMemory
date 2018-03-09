@@ -45,6 +45,7 @@ abstract class BaseActivity : AppCompatActivity() {
         lifecycleObservers.forEach { it.register(this) }
 
         setContentView(layoutRes)
+        @Suppress("TooGenericExceptionThrown")
         val screenContainer = findViewById<ViewGroup>(R.id.screen_container)
                 ?: throw NullPointerException("Activity must have a view with id: screen_container")
         router = Conductor.attachRouter(this, screenContainer, savedInstanceState)
@@ -57,9 +58,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         backAnimation = intent.getIntExtra(EXTRA_BACK_ANIMATION, -1)
-        if (backAnimation == -1) {
-            backAnimation = R.anim.slide_out_to_right
-        }
+        if (backAnimation == -1) backAnimation = R.anim.slide_out_to_right
     }
 
     final override fun onSaveInstanceState(outState: Bundle?) {
@@ -68,16 +67,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     final override fun onBackPressed() {
-        if (!screenNavigator.pop()) {
-            super.onBackPressed()
-        }
+        if (!screenNavigator.pop()) super.onBackPressed()
     }
 
     final override fun onDestroy() {
         super.onDestroy()
-        if (isFinishing) {
-            Injector.clearComponent(this)
-        }
+        if (isFinishing) Injector.clearComponent(this)
     }
 
     private fun monitorBackStack() {

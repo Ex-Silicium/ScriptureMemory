@@ -1,7 +1,9 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id "com.android.library"
+    id "com.jakewharton.butterknife"
+    id "org.jetbrains.kotlin.android"
+    id "org.jetbrains.kotlin.kapt"
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -37,7 +39,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':daggerextension')
+    api project(':daggerannotations')
     implementation project(':screennavigator')
 
     api deps.androidKtx
@@ -45,7 +47,7 @@ dependencies {
 
     implementation deps.butterknife
     kapt deps.butterknifeCompiler
-    
+
     api deps.daggerAndroidSupport
     kapt deps.daggerAndroidProcessor
     kapt deps.daggerCompiler

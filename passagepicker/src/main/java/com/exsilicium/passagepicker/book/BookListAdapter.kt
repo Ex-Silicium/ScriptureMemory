@@ -11,6 +11,7 @@ import com.exsilicium.scripture.shared.model.Book
 internal class BookListAdapter(
         private val clickListener: OnBookClickListener
 ) : RecyclerView.Adapter<BookListViewHolder>() {
+
     private val data = mutableListOf<Book>()
 
     init {

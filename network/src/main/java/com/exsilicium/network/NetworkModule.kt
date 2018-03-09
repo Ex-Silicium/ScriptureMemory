@@ -16,9 +16,10 @@ import javax.inject.Singleton
 
 @Module
 class NetworkModule {
+
     @Provides
     @Singleton
-    internal fun provideHttpCache(appContext: Context) = Cache(appContext.cacheDir, 10 * 1024 * 1024)
+    internal fun provideHttpCache(appContext: Context) = Cache(appContext.cacheDir, CACHE_SIZE_BYTES)
 
     @Provides
     @Singleton
@@ -59,6 +60,7 @@ class NetworkModule {
             .build()
 
     internal companion object {
+        private const val CACHE_SIZE_BYTES: Long = 10 * 1024 * 1024
         private const val KEY_API_TOKEN = "KEY_API_TOKEN"
     }
 }

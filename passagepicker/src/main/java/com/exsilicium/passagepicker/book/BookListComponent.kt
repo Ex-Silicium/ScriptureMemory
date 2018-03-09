@@ -1,7 +1,7 @@
 package com.exsilicium.passagepicker.book
 
 import com.exsilicium.common.dagger.ScreenModule
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
@@ -13,6 +13,7 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface BookListComponent : AndroidInjector<BookListController> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<BookListController>()
 }

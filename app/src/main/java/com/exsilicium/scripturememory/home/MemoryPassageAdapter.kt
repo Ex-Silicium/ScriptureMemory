@@ -11,6 +11,7 @@ import com.exsilicium.scripturememory.home.model.MemoryPassage
 internal class MemoryPassageAdapter(
         private val clickListener: MemoryPassageClickListener
 ) : RecyclerView.Adapter<MemoryPassageViewHolder>() {
+
     private val data = mutableListOf<MemoryPassage>()
 
     init {

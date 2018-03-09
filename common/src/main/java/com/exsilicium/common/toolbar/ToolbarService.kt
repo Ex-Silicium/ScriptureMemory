@@ -11,7 +11,7 @@ import butterknife.Unbinder
 import com.exsilicium.common.R2
 import com.exsilicium.common.extension.safeLet
 import com.exsilicium.common.ui.ActivityLifecycleObserver
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import timber.log.Timber
 import javax.inject.Inject
 

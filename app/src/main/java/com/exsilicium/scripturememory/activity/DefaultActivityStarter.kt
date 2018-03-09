@@ -9,6 +9,7 @@ import javax.inject.Inject
 internal class DefaultActivityStarter @Inject constructor(
         private val screenNavigator: ScreenNavigator
 ) : ActivityStarter {
+
     override fun loadPassage(reference: ScriptureReference) {
         PassageDetailActivity.loadPassage(screenNavigator, reference)
     }

@@ -3,7 +3,7 @@ package com.exsilicium.scripturememory.home
 import com.exsilicium.common.dagger.ActivityComponent
 import com.exsilicium.common.dagger.ActivityModule
 import com.exsilicium.common.ui.NavigationModule
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
@@ -16,6 +16,7 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface HomeActivityComponent : ActivityComponent<HomeActivity> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<HomeActivity>()
 }

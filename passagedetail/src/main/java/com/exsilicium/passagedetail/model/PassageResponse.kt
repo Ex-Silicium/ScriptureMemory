@@ -9,5 +9,6 @@ data class PassageResponse internal constructor(
         @SerializedName("passage_meta") val passageMetadata: List<PassageMetadata>,
         private val passages: List<String>
 ) {
+
     fun passage() = passages[0].trim()
 }

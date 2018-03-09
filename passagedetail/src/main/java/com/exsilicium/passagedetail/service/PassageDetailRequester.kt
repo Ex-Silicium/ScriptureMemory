@@ -1,6 +1,6 @@
 package com.exsilicium.passagedetail.service
 
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import com.exsilicium.scripture.shared.model.ScriptureReference
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
@@ -11,6 +11,7 @@ internal class PassageDetailRequester @Inject constructor(
         private val reference: ScriptureReference,
         private val passageService: PassageService
 ) {
+
     fun getDetails(): Single<String> = passageService.getPassage(reference)
             .subscribeOn(Schedulers.io())
             .map { response -> response.passage() }

@@ -3,7 +3,7 @@ package com.exsilicium.passagedetail
 import com.exsilicium.common.dagger.ActivityComponent
 import com.exsilicium.common.dagger.ActivityModule
 import com.exsilicium.common.ui.NavigationModule
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import com.exsilicium.scripture.shared.model.Book
 import com.exsilicium.scripture.shared.model.ScriptureReference
 import com.exsilicium.scripture.shared.model.Verse
@@ -20,9 +20,12 @@ import dagger.android.AndroidInjector
         ]
 )
 interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivity> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<PassageDetailActivity>() {
+
         @BindsInstance
+        @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
         abstract fun reference(scriptureReference: ScriptureReference)
 
         override fun seedInstance(instance: PassageDetailActivity) {

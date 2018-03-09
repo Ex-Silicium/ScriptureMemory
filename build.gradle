@@ -39,13 +39,31 @@ buildscript {
     }
 }
 
-apply plugin: 'kotlin'
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.2.30"
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-3"
+}
 
 allprojects {
     repositories {
         google()
         jcenter()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+}
+
+detekt {
+    version = "1.0.0.RC6-3"
+    profile("main") {
+        output = "$projectDir/build/outputs/reports/detekt"
+        config = "$projectDir/detekt.yml"
+    }
+    subprojects {
+        profile(it.name) {
+            input = "${it.name}/src/main/java"
+            filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+            parallel = true
+        }
     }
 }
 

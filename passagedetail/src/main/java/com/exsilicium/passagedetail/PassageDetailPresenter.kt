@@ -1,8 +1,8 @@
 package com.exsilicium.passagedetail
 
 import com.exsilicium.common.disposable.DisposableManager
-import com.exsilicium.daggerextension.annotation.ForScreen
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ForScreen
+import com.exsilicium.daggerannotations.ScreenScope
 import com.exsilicium.passagedetail.service.PassageDetailRequester
 import javax.inject.Inject
 
@@ -12,6 +12,7 @@ internal class PassageDetailPresenter @Inject constructor(
         private val viewModel: PassageDetailViewModel,
         private val requester: PassageDetailRequester
 ) {
+
     init {
         loadPassageDetails()
     }

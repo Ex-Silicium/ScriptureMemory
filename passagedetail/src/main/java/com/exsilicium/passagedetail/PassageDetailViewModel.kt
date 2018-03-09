@@ -1,6 +1,6 @@
 package com.exsilicium.passagedetail
 
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer
@@ -10,6 +10,7 @@ import javax.inject.Inject
 @ScreenScope
 internal class PassageDetailViewModel @Inject constructor(
 ) {
+
     private val loadingRelay = BehaviorRelay.create<Boolean>()
     private val errorRelay = BehaviorRelay.createDefault(-1)
     private val passageTextRelay = BehaviorRelay.create<String>()

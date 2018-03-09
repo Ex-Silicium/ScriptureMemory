@@ -12,6 +12,7 @@ import javax.inject.Singleton
 class ResourceRetriever @Inject constructor(
         private val applicationContext: Context
 ) {
+
     fun getColor(@ColorRes colorRes: Int): Int {
         return ContextCompat.getColor(applicationContext, colorRes)
     }
@@ -24,6 +25,7 @@ class ResourceRetriever @Inject constructor(
         return if (formatArgs.isEmpty()) {
             applicationContext.getString(stringRes)
         } else {
+            @Suppress("SpreadOperator")
             applicationContext.getString(stringRes, *formatArgs)
         }
     }

@@ -4,6 +4,7 @@ import javax.inject.Inject
 
 class ActivityComponentLifecyclePlugin @Inject constructor(
 ) : ComponentLifecyclePlugin {
+
     override fun componentCreated(componentId: String, component: Any) {
     }
 

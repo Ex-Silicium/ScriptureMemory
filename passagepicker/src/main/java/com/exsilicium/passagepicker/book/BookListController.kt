@@ -56,8 +56,16 @@ internal class BookListController : BaseController() {
                     .distinctUntilChanged()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
-                        recyclerView.visibility = if (it.isEmpty()) View.GONE else View.VISIBLE
-                        errorMessage.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+                        recyclerView.visibility = if (it.isEmpty()) {
+                            View.GONE
+                        } else {
+                            View.VISIBLE
+                        }
+                        errorMessage.visibility = if (it.isEmpty()) {
+                            View.VISIBLE
+                        } else {
+                            View.GONE
+                        }
                         (recyclerView.adapter as BookListAdapter).setData(it)
                     }
     )

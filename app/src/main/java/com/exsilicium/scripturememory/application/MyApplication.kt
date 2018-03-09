@@ -12,9 +12,7 @@ internal class MyApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
+        if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
 
         component = DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))

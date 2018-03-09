@@ -15,5 +15,6 @@ import javax.inject.Singleton
         ]
 )
 internal interface ApplicationComponent {
+
     fun inject(myApplication: MyApplication)
 }
