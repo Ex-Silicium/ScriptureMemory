@@ -13,9 +13,7 @@ internal class ComponentClearingChangeListener : ControllerChangeHandler.Control
             container: ViewGroup,
             handler: ControllerChangeHandler
     ) {
-        if (!isPush && from != null) {
-            Injector.clearComponent(from)
-        }
+        if (!isPush && from != null) Injector.clearComponent(from)
     }
 
     override fun onChangeStarted(

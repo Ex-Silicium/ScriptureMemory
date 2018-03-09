@@ -21,16 +21,12 @@ class SlideChangeHandler(
         val animatorSet = AnimatorSet()
 
         if (isPush) {
-            if (to != null) {
-                animatorSet.play(ObjectAnimator.ofFloat(to, View.TRANSLATION_X, to.width.toFloat(), 0f))
-            }
+            if (to != null) animatorSet.play(ObjectAnimator.ofFloat(to, View.TRANSLATION_X, to.width.toFloat(), 0f))
             if (slideBoth && from != null) {
                 animatorSet.play(ObjectAnimator.ofFloat(from, View.TRANSLATION_X, 0f, -from.width.toFloat()))
             }
         } else {
-            if (from != null) {
-                animatorSet.play(ObjectAnimator.ofFloat(from, View.TRANSLATION_X, from.width.toFloat()))
-            }
+            if (from != null) animatorSet.play(ObjectAnimator.ofFloat(from, View.TRANSLATION_X, from.width.toFloat()))
             if (slideBoth && to != null) {
                 animatorSet.play(ObjectAnimator.ofFloat(to, View.TRANSLATION_X, -to.width.toFloat(), 0f))
             }

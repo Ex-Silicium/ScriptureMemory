@@ -52,8 +52,16 @@ internal class MemoryPassageController : BaseController() {
                         .subscribe { data ->
                             (recyclerView.adapter as MemoryPassageAdapter).setData(data)
                             val isDataEmpty = data.isEmpty()
-                            recyclerView.visibility = if (isDataEmpty) View.GONE else View.VISIBLE
-                            message.visibility = if (isDataEmpty) View.VISIBLE else View.GONE
+                            recyclerView.visibility = if (isDataEmpty) {
+                                View.GONE
+                            } else {
+                                View.VISIBLE
+                            }
+                            message.visibility = if (isDataEmpty) {
+                                View.VISIBLE
+                            } else {
+                                View.GONE
+                            }
                         }
         )
     }

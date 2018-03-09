@@ -41,7 +41,11 @@ internal class DefaultScreenNavigator @Inject constructor(
 
     override fun popToHome() {
         activity?.let {
-            if (it is BaseActivity && it.isRoot) popToRoot() else it.finish()
+            if (it is BaseActivity && it.isRoot) {
+                popToRoot()
+            } else {
+                it.finish()
+            }
         }
     }
 

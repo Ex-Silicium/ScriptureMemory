@@ -14,20 +14,15 @@ data class ControllerScreen(
         private val isRoot: Boolean = false,
         private val tag: String? = null
 ) : Screen {
+
     override fun launchScreen(activity: Activity, router: Router, animationConfiguration: AnimationConfiguration) {
         if (isRoot) {
             router.setRoot(RouterTransaction.with(controller))
         } else {
             val routerTransaction = RouterTransaction.with(controller)
-            if (pushChangeHandler != null) {
-                routerTransaction.pushChangeHandler(pushChangeHandler)
-            }
-            if (popChangeHandler != null) {
-                routerTransaction.popChangeHandler(popChangeHandler)
-            }
-            if (tag != null) {
-                routerTransaction.tag(tag)
-            }
+            if (pushChangeHandler != null) routerTransaction.pushChangeHandler(pushChangeHandler)
+            if (popChangeHandler != null) routerTransaction.popChangeHandler(popChangeHandler)
+            if (tag != null) routerTransaction.tag(tag)
             if (addToBackStack) {
                 router.pushController(routerTransaction)
             } else {

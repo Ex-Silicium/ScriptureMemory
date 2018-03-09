@@ -57,9 +57,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         backAnimation = intent.getIntExtra(EXTRA_BACK_ANIMATION, -1)
-        if (backAnimation == -1) {
-            backAnimation = R.anim.slide_out_to_right
-        }
+        if (backAnimation == -1) backAnimation = R.anim.slide_out_to_right
     }
 
     final override fun onSaveInstanceState(outState: Bundle?) {
@@ -68,16 +66,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     final override fun onBackPressed() {
-        if (!screenNavigator.pop()) {
-            super.onBackPressed()
-        }
+        if (!screenNavigator.pop()) super.onBackPressed()
     }
 
     final override fun onDestroy() {
         super.onDestroy()
-        if (isFinishing) {
-            Injector.clearComponent(this)
-        }
+        if (isFinishing) Injector.clearComponent(this)
     }
 
     private fun monitorBackStack() {

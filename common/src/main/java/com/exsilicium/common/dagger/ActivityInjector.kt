@@ -12,12 +12,11 @@ class ActivityInjector(
         private val activityInjectors: Map<Class<out Activity>, Provider<AndroidInjector.Factory<out Activity>>>,
         private val lifecyclePlugin: ComponentLifecyclePlugin
 ) {
+
     private val cache: MutableMap<String, AndroidInjector<Activity>> = ArrayMap()
 
     internal fun inject(activity: Activity) {
-        if (activity !is BaseActivity) {
-            throw IllegalArgumentException("Activity must extend BaseActivity")
-        }
+        if (activity !is BaseActivity) throw IllegalArgumentException("Activity must extend BaseActivity")
         val instanceId = activity.instanceId
         if (cache.containsKey(instanceId)) {
             cache[instanceId]?.inject(activity)
@@ -32,9 +31,7 @@ class ActivityInjector(
     }
 
     internal fun clear(activity: Activity) {
-        if (activity !is BaseActivity) {
-            throw IllegalArgumentException("Activity must extend BaseActivity")
-        }
+        if (activity !is BaseActivity) throw IllegalArgumentException("Activity must extend BaseActivity")
         lifecyclePlugin.componentDestroyed(activity.instanceId, cache.remove(activity.instanceId))
     }
 
