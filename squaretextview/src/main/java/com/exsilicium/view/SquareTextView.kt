@@ -10,6 +10,7 @@ class SquareTextView @JvmOverloads constructor(
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val widthMode = View.MeasureSpec.getMode(widthMeasureSpec)
         val widthSize = View.MeasureSpec.getSize(widthMeasureSpec)

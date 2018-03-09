@@ -18,8 +18,10 @@ import javax.inject.Named
         ]
 )
 internal interface VerseListComponent : AndroidInjector<VerseListController> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<VerseListController>() {
+
         @BindsInstance
         abstract fun book(book: Book)
 

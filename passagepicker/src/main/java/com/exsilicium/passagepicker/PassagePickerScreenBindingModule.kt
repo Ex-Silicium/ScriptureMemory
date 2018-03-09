@@ -21,6 +21,7 @@ import dagger.multibindings.IntoMap
         ]
 )
 abstract class PassagePickerScreenBindingModule {
+
     @Binds
     @IntoMap
     @ControllerKey(BookListController::class)

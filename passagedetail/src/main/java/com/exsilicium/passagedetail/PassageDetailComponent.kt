@@ -14,6 +14,7 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface PassageDetailComponent : AndroidInjector<PassageDetailController> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<PassageDetailController>()
 }

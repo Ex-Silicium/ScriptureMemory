@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 
 @Module
 internal object PassageServiceModule {
+
     @Provides
     @ScreenScope
     @JvmStatic

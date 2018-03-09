@@ -16,6 +16,7 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface HomeActivityComponent : ActivityComponent<HomeActivity> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<HomeActivity>()
 }

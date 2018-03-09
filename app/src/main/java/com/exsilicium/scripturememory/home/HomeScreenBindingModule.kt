@@ -13,6 +13,7 @@ import dagger.multibindings.IntoMap
         ]
 )
 internal abstract class HomeScreenBindingModule {
+
     @Binds
     @IntoMap
     @ControllerKey(MemoryPassageController::class)

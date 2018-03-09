@@ -13,6 +13,7 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface MemoryPassageComponent : AndroidInjector<MemoryPassageController> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<MemoryPassageController>()
 }

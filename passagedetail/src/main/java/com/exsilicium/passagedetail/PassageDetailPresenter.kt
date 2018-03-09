@@ -12,6 +12,7 @@ internal class PassageDetailPresenter @Inject constructor(
         private val viewModel: PassageDetailViewModel,
         private val requester: PassageDetailRequester
 ) {
+
     init {
         loadPassageDetails()
     }

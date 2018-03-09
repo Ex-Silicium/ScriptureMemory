@@ -9,6 +9,7 @@ import dagger.Module
 
 @Module
 abstract class ScreenModule {
+
     @Binds
     @ForScreen
     @ScreenScope

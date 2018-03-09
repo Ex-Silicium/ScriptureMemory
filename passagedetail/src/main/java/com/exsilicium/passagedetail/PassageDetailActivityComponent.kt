@@ -20,8 +20,10 @@ import dagger.android.AndroidInjector
         ]
 )
 interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivity> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<PassageDetailActivity>() {
+
         @BindsInstance
         abstract fun reference(scriptureReference: ScriptureReference)
 

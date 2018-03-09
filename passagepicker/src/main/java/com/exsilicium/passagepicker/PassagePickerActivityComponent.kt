@@ -16,6 +16,7 @@ import dagger.android.AndroidInjector
         ]
 )
 interface PassagePickerActivityComponent : ActivityComponent<PassagePickerActivity> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<PassagePickerActivity>()
 }

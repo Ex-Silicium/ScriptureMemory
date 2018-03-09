@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 internal class MemoryPassagesRequester @Inject constructor(
 ) {
+
     fun getMemoryPassages(): Single<List<MemoryPassage>> {
         return Single.just(emptyList<MemoryPassage>())
                 .delay(1500, TimeUnit.MILLISECONDS)

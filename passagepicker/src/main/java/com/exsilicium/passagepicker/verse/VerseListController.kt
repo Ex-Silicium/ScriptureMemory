@@ -18,6 +18,7 @@ import javax.inject.Named
 internal class VerseListController(
         args: Bundle? = null
 ) : BaseController(args) {
+
     @Inject lateinit var book: Book
     @Inject @Named(KEY_CHAPTER) @JvmField var chapter: Int = 0
     @Inject lateinit var presenter: VerseListPresenter

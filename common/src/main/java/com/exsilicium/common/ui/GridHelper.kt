@@ -12,6 +12,7 @@ import javax.inject.Inject
 class GridHelper @Inject constructor(
         private val resourceRetriever: ResourceRetriever
 ) : ActivityLifecycleObserver() {
+
     private val screenWidth: Int
         get() {
             val outSize = Point()

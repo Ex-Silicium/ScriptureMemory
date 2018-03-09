@@ -12,6 +12,7 @@ import dagger.multibindings.IntoSet
 
 @Module
 abstract class ActivityModule {
+
     @Binds
     @IntoSet
     abstract fun bindToolbarActivityLifecycleObserver(toolbarService: ToolbarService): ActivityLifecycleObserver

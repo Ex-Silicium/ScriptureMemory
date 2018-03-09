@@ -16,6 +16,7 @@ import javax.inject.Singleton
 
 @Module
 class NetworkModule {
+
     @Provides
     @Singleton
     internal fun provideHttpCache(appContext: Context) = Cache(appContext.cacheDir, 10 * 1024 * 1024)

@@ -7,6 +7,7 @@ import dagger.multibindings.IntoSet
 
 @Module
 abstract class NavigationModule {
+
     @Binds
     internal abstract fun provideScreenNavigator(screenNavigator: DefaultScreenNavigator): ScreenNavigator
 

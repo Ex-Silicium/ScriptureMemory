@@ -12,6 +12,7 @@ import javax.inject.Inject
 @ScreenScope
 internal class MemoryPassageViewModel @Inject constructor(
 ) {
+
     private val loadingRelay = BehaviorRelay.create<Boolean>()
     private val errorRelay = BehaviorRelay.createDefault(-1)
     private val memoryPassagesRelay = BehaviorRelay.create<List<MemoryPassage>>()

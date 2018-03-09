@@ -14,6 +14,7 @@ internal class VerseListPresenter @Inject constructor(
         @field:Named(KEY_CHAPTER) private val chapter: Int,
         private val activityStarter: ActivityStarter
 ) : OnVerseClickedListener {
+
     override fun onClick(verse: Int) {
         activityStarter.loadPassage(ScriptureReference(book, Verse(chapter, verse)))
     }

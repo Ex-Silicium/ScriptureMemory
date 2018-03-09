@@ -56,6 +56,7 @@ internal abstract class ActivityBindingModule {
 
     @Module
     companion object {
+
         @JvmStatic
         @Provides
         @Singleton

@@ -15,8 +15,10 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface ChapterListComponent : AndroidInjector<ChapterListController> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<ChapterListController>() {
+
         @BindsInstance
         abstract fun book(book: Book)
 

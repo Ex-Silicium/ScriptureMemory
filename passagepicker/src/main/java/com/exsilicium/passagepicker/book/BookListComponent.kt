@@ -13,6 +13,7 @@ import dagger.android.AndroidInjector
         ]
 )
 internal interface BookListComponent : AndroidInjector<BookListController> {
+
     @Subcomponent.Builder
     abstract class Builder : AndroidInjector.Builder<BookListController>()
 }

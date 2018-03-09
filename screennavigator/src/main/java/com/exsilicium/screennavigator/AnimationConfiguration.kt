@@ -18,7 +18,8 @@ data class AnimationConfiguration(
 
         fun slideIn(): AnimationConfiguration {
             return AnimationConfiguration(
-                    R.anim.slide_in_from_right, R.anim.no_op, R.anim.no_op, R.anim.slide_out_to_right)
+                    R.anim.slide_in_from_right, R.anim.no_op, R.anim.no_op, R.anim.slide_out_to_right
+            )
         }
 
         fun modal(): AnimationConfiguration {

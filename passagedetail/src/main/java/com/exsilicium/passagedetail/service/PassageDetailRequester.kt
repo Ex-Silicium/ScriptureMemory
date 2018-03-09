@@ -11,6 +11,7 @@ internal class PassageDetailRequester @Inject constructor(
         private val reference: ScriptureReference,
         private val passageService: PassageService
 ) {
+
     fun getDetails(): Single<String> = passageService.getPassage(reference)
             .subscribeOn(Schedulers.io())
             .map { response -> response.passage() }
