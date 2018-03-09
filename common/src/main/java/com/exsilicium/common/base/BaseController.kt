@@ -53,7 +53,7 @@ abstract class BaseController(
         val view = inflater.inflate(layoutRes, container, false)
         unbinder = ButterKnife.bind(this, view)
         onViewBound(view)
-        disposables.addAll(* subscriptions())
+        disposables.addAll(*subscriptions())
         title()?.let { toolbarService.updateTitle(it) }
         return view
     }

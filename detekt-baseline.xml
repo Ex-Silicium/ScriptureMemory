@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+    <Blacklist timestamp="1520620655778"></Blacklist>
+    <Whitelist timestamp="1520620774925">
+        <ID>LongParameterList:PassageService.kt$PassageService$( @Query("q") reference: ScriptureReference,
+            @Query("include-passage-references") includeReferences: Boolean = false,
+            @Query("include-first-verse-numbers") includeFirstVerseNumbers: Boolean = false,
+            @Query("include-verse-numbers") includeVerseNumbers: Boolean = false, @Query("include-footnotes")
+            includeFootnotes: Boolean = false, @Query("include-footnote-body") includeFootnoteBody: Boolean = false,
+            @Query("include-headings") includeHeadings: Boolean = false, @Query("include-selahs") includeSelahs: Boolean
+            = false )
+        </ID>
+        <ID>MagicNumber:MemoryPassagesRequester.kt$MemoryPassagesRequester$1500</ID>
+        <ID>NewLineAtEndOfFile:ActivityComponent.kt$com.exsilicium.common.dagger.ActivityComponent.kt</ID>
+        <ID>NewLineAtEndOfFile:ActivityInjector.kt$com.exsilicium.common.dagger.ActivityInjector.kt</ID>
+        <ID>NewLineAtEndOfFile:ActivityLifecycleObserver.kt$com.exsilicium.common.ui.ActivityLifecycleObserver.kt</ID>
+        <ID>NewLineAtEndOfFile:ActivityModule.kt$com.exsilicium.common.dagger.ActivityModule.kt</ID>
+        <ID>NewLineAtEndOfFile:ActivityScope.kt$com.exsilicium.daggerextension.annotation.ActivityScope.kt</ID>
+        <ID>NewLineAtEndOfFile:ActivityScreen.kt$com.exsilicium.screennavigator.ActivityScreen.kt</ID>
+        <ID>NewLineAtEndOfFile:ActivityStarter.kt$com.exsilicium.common.ui.ActivityStarter.kt</ID>
+        <ID>NewLineAtEndOfFile:AnimationConfiguration.kt$com.exsilicium.screennavigator.AnimationConfiguration.kt</ID>
+        <ID>NewLineAtEndOfFile:ApplicationModule.kt$com.exsilicium.common.dagger.ApplicationModule.kt</ID>
+        <ID>NewLineAtEndOfFile:BaseActivity.kt$com.exsilicium.common.base.BaseActivity.kt</ID>
+        <ID>NewLineAtEndOfFile:BaseApplication.kt$com.exsilicium.common.base.BaseApplication.kt</ID>
+        <ID>NewLineAtEndOfFile:BaseController.kt$com.exsilicium.common.base.BaseController.kt</ID>
+        <ID>NewLineAtEndOfFile:BookListModule.kt$com.exsilicium.passagepicker.book.BookListModule.kt</ID>
+        <ID>NewLineAtEndOfFile:ChapterListAdapter.kt$com.exsilicium.passagepicker.chapter.ChapterListAdapter.kt</ID>
+        <ID>NewLineAtEndOfFile:ChapterListComponent.kt$com.exsilicium.passagepicker.chapter.ChapterListComponent.kt</ID>
+        <ID>NewLineAtEndOfFile:ChapterListController.kt$com.exsilicium.passagepicker.chapter.ChapterListController.kt
+        </ID>
+        <ID>NewLineAtEndOfFile:ChapterListModule.kt$com.exsilicium.passagepicker.chapter.ChapterListModule.kt</ID>
+        <ID>NewLineAtEndOfFile:ChapterListPresenter.kt$com.exsilicium.passagepicker.chapter.ChapterListPresenter.kt</ID>
+        <ID>NewLineAtEndOfFile:ChapterListViewHolder.kt$com.exsilicium.passagepicker.chapter.ChapterListViewHolder.kt
+        </ID>
+        <ID>
+            NewLineAtEndOfFile:ComponentClearingChangeListener.kt$com.exsilicium.common.base.ComponentClearingChangeListener.kt
+        </ID>
+        <ID>NewLineAtEndOfFile:ControllerScreen.kt$com.exsilicium.screennavigator.ControllerScreen.kt</ID>
+        <ID>
+            NewLineAtEndOfFile:DefaultActivityStarter.kt$com.exsilicium.scripturememory.activity.DefaultActivityStarter.kt
+        </ID>
+        <ID>
+            NewLineAtEndOfFile:DefaultDisposableManager.kt$com.exsilicium.common.disposable.DefaultDisposableManager.kt
+        </ID>
+        <ID>NewLineAtEndOfFile:DisposableManager.kt$com.exsilicium.common.disposable.DisposableManager.kt</ID>
+        <ID>NewLineAtEndOfFile:ForActivity.kt$com.exsilicium.daggerextension.annotation.ForActivity.kt</ID>
+        <ID>NewLineAtEndOfFile:ForScreen.kt$com.exsilicium.daggerextension.annotation.ForScreen.kt</ID>
+        <ID>NewLineAtEndOfFile:GridHelper.kt$com.exsilicium.common.ui.GridHelper.kt</ID>
+        <ID>NewLineAtEndOfFile:GridHelperTest.kt$com.exsilicium.common.ui.GridHelperTest.kt</ID>
+        <ID>NewLineAtEndOfFile:Injector.kt$com.exsilicium.common.dagger.Injector.kt</ID>
+        <ID>NewLineAtEndOfFile:KeyboardHelper.kt$com.exsilicium.common.utility.KeyboardHelper.kt</ID>
+        <ID>NewLineAtEndOfFile:LetExtension.kt$com.exsilicium.common.extension.LetExtension.kt</ID>
+        <ID>NewLineAtEndOfFile:MemoryPassage.kt$com.exsilicium.scripturememory.home.model.MemoryPassage.kt</ID>
+        <ID>
+            NewLineAtEndOfFile:MemoryPassageScreenModule.kt$com.exsilicium.scripturememory.home.MemoryPassageScreenModule.kt
+        </ID>
+        <ID>NewLineAtEndOfFile:MyApplication.kt$com.exsilicium.scripturememory.application.MyApplication.kt</ID>
+        <ID>NewLineAtEndOfFile:NavigationModule.kt$com.exsilicium.common.ui.NavigationModule.kt</ID>
+        <ID>NewLineAtEndOfFile:PassageDetailActivity.kt$com.exsilicium.passagedetail.PassageDetailActivity.kt</ID>
+        <ID>
+            NewLineAtEndOfFile:PassageDetailActivityComponent.kt$com.exsilicium.passagedetail.PassageDetailActivityComponent.kt
+        </ID>
+        <ID>NewLineAtEndOfFile:PassagePickerActivity.kt$com.exsilicium.passagepicker.PassagePickerActivity.kt</ID>
+        <ID>
+            NewLineAtEndOfFile:PassagePickerActivityComponent.kt$com.exsilicium.passagepicker.PassagePickerActivityComponent.kt
+        </ID>
+        <ID>
+            NewLineAtEndOfFile:PassagePickerScreenBindingModule.kt$com.exsilicium.passagepicker.PassagePickerScreenBindingModule.kt
+        </ID>
+        <ID>NewLineAtEndOfFile:ResourceRetriever.kt$com.exsilicium.common.utility.ResourceRetriever.kt</ID>
+        <ID>NewLineAtEndOfFile:Screen.kt$com.exsilicium.screennavigator.Screen.kt</ID>
+        <ID>NewLineAtEndOfFile:ScreenInjector.kt$com.exsilicium.common.dagger.ScreenInjector.kt</ID>
+        <ID>NewLineAtEndOfFile:ScreenModule.kt$com.exsilicium.common.dagger.ScreenModule.kt</ID>
+        <ID>NewLineAtEndOfFile:ScreenNavigator.kt$com.exsilicium.screennavigator.ScreenNavigator.kt</ID>
+        <ID>NewLineAtEndOfFile:ScreenScope.kt$com.exsilicium.daggerextension.annotation.ScreenScope.kt</ID>
+        <ID>NewLineAtEndOfFile:ScreenTransaction.kt$com.exsilicium.screennavigator.ScreenTransaction.kt</ID>
+        <ID>NewLineAtEndOfFile:SquareTextView.kt$com.exsilicium.view.SquareTextView.kt</ID>
+        <ID>NewLineAtEndOfFile:VerseListAdapter.kt$com.exsilicium.passagepicker.verse.VerseListAdapter.kt</ID>
+        <ID>NewLineAtEndOfFile:VerseListController.kt$com.exsilicium.passagepicker.verse.VerseListController.kt</ID>
+        <ID>NewLineAtEndOfFile:VerseListModule.kt$com.exsilicium.passagepicker.verse.VerseListModule.kt</ID>
+        <ID>NewLineAtEndOfFile:VerseListPresenter.kt$com.exsilicium.passagepicker.verse.VerseListPresenter.kt</ID>
+        <ID>NewLineAtEndOfFile:VerseListViewHolder.kt$com.exsilicium.passagepicker.verse.VerseListViewHolder.kt</ID>
+        <ID>OptionalAbstractKeyword:ChapterListComponent.kt$ChapterListComponent.Builder$@BindsInstance abstract fun
+            book(book: Book)
+        </ID>
+        <ID>
+            OptionalAbstractKeyword:PassageDetailActivityComponent.kt$PassageDetailActivityComponent.Builder$@BindsInstance
+            abstract fun reference(scriptureReference: ScriptureReference)
+        </ID>
+        <ID>OptionalAbstractKeyword:VerseListComponent.kt$VerseListComponent.Builder$@BindsInstance @Named(KEY_CHAPTER)
+            abstract fun chapter(chapter: Int)
+        </ID>
+        <ID>OptionalAbstractKeyword:VerseListComponent.kt$VerseListComponent.Builder$@BindsInstance abstract fun
+            book(book: Book)
+        </ID>
+        <ID>SpreadOperator:BaseController.kt$BaseController$(*subscriptions())</ID>
+        <ID>SpreadOperator:DefaultDisposableManager.kt$DefaultDisposableManager$(*disposables)</ID>
+        <ID>SpreadOperator:ResourceRetriever.kt$ResourceRetriever$(stringRes, *formatArgs)</ID>
+        <ID>TooGenericExceptionThrown:BaseActivity.kt$BaseActivity$throw NullPointerException("Activity must have a view
+            with id: screen_container")
+        </ID>
+    </Whitelist>
+</SmellBaseline>
