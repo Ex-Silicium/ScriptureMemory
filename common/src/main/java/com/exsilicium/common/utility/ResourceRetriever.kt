@@ -25,6 +25,7 @@ class ResourceRetriever @Inject constructor(
         return if (formatArgs.isEmpty()) {
             applicationContext.getString(stringRes)
         } else {
+            @Suppress("SpreadOperator")
             applicationContext.getString(stringRes, *formatArgs)
         }
     }

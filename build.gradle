@@ -55,13 +55,12 @@ allprojects {
 detekt {
     version = "1.0.0.RC6-3"
     profile("main") {
-        baseline = "$projectDir/detekt-baseline.xml"
         output = "$projectDir/build/outputs/reports/detekt"
+        config = "$projectDir/detekt.yml"
     }
     subprojects {
         profile(it.name) {
             input = "${it.name}/src/main/java"
-            config = "$projectDir/detekt.yml"
             filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
             parallel = true
         }

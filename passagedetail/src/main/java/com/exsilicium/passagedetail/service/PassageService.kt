@@ -7,7 +7,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PassageService {
-    @GET("passage/text/") fun getPassage(
+
+    @GET("passage/text/")
+    @Suppress("LongParameterList")
+    fun getPassage(
             @Query("q") reference: ScriptureReference,
             @Query("include-passage-references") includeReferences: Boolean = false,
             @Query("include-first-verse-numbers") includeFirstVerseNumbers: Boolean = false,

@@ -20,6 +20,7 @@ internal interface ChapterListComponent : AndroidInjector<ChapterListController>
     abstract class Builder : AndroidInjector.Builder<ChapterListController>() {
 
         @BindsInstance
+        @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
         abstract fun book(book: Book)
 
         override fun seedInstance(instance: ChapterListController) {

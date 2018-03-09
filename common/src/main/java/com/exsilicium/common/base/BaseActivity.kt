@@ -45,6 +45,7 @@ abstract class BaseActivity : AppCompatActivity() {
         lifecycleObservers.forEach { it.register(this) }
 
         setContentView(layoutRes)
+        @Suppress("TooGenericExceptionThrown")
         val screenContainer = findViewById<ViewGroup>(R.id.screen_container)
                 ?: throw NullPointerException("Activity must have a view with id: screen_container")
         router = Conductor.attachRouter(this, screenContainer, savedInstanceState)

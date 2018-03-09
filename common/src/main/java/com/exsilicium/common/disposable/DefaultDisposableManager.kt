@@ -15,6 +15,7 @@ internal class DefaultDisposableManager @Inject constructor(
     }
 
     override fun addAll(vararg disposables: Disposable) {
+        @Suppress("SpreadOperator")
         compositeDisposable.addAll(*disposables)
     }
 

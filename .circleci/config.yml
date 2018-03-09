@@ -22,7 +22,7 @@ jobs:
           command: ./gradlew lint
       - run:
           name: Run Detekt
-          command: ./gradlew detektBaseline
+          command: ./gradlew detektCheck
       - run:
           name: Run Tests
           command: ./gradlew test
