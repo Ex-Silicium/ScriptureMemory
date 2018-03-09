@@ -1,4 +1,4 @@
-package com.exsilicium.daggerextension.annotation
+package com.exsilicium.daggerannotations
 
 import javax.inject.Scope
 

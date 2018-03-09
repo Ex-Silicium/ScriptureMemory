@@ -5,7 +5,7 @@ import android.util.ArrayMap
 import com.bluelinelabs.conductor.Controller
 import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.base.BaseController
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import dagger.android.AndroidInjector
 import javax.inject.Inject
 import javax.inject.Provider

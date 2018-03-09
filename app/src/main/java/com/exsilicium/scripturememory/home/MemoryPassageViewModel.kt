@@ -1,6 +1,6 @@
 package com.exsilicium.scripturememory.home
 
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.home.model.MemoryPassage
 import com.jakewharton.rxrelay2.BehaviorRelay

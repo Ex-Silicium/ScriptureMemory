@@ -3,7 +3,7 @@ package com.exsilicium.passagepicker
 import com.exsilicium.common.dagger.ActivityComponent
 import com.exsilicium.common.dagger.ActivityModule
 import com.exsilicium.common.ui.NavigationModule
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

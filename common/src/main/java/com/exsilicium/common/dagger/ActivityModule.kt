@@ -4,8 +4,8 @@ import com.exsilicium.common.disposable.DefaultDisposableManager
 import com.exsilicium.common.disposable.DisposableManager
 import com.exsilicium.common.toolbar.ToolbarService
 import com.exsilicium.common.ui.ActivityLifecycleObserver
-import com.exsilicium.daggerextension.annotation.ActivityScope
-import com.exsilicium.daggerextension.annotation.ForActivity
+import com.exsilicium.daggerannotations.ActivityScope
+import com.exsilicium.daggerannotations.ForActivity
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoSet

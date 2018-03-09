@@ -1,7 +1,7 @@
 package com.exsilicium.scripturememory.home
 
 import com.exsilicium.common.dagger.ScreenModule
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

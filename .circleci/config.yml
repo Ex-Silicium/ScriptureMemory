@@ -36,9 +36,6 @@ jobs:
           path: common/build/reports
           destination: reports/common
       - store_artifacts:
-          path: daggerextension/build/reports
-          destination: reports/daggerextension
-      - store_artifacts:
           path: network/build/reports
           destination: reports/network
       - store_artifacts:
@@ -57,8 +54,6 @@ jobs:
           path: app/build/test-results
       - store_test_results:
           path: common/build/test-results
-      - store_test_results:
-          path: daggerextension/build/test-results
       - store_test_results:
           path: network/build/test-results
       - store_test_results:

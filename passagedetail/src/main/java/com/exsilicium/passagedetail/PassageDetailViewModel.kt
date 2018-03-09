@@ -1,6 +1,6 @@
 package com.exsilicium.passagedetail
 
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer

@@ -1,7 +1,7 @@
 package com.exsilicium.passagepicker.verse
 
 import com.exsilicium.common.dagger.ScreenModule
-import com.exsilicium.daggerextension.annotation.ScreenScope
+import com.exsilicium.daggerannotations.ScreenScope
 import com.exsilicium.passagepicker.chapter.ChapterListController.Companion.KEY_BOOK_ORDINAL
 import com.exsilicium.passagepicker.verse.VerseListController.Companion.KEY_CHAPTER
 import com.exsilicium.scripture.shared.model.Book

@@ -5,7 +5,7 @@ import android.support.annotation.DimenRes
 import android.support.annotation.VisibleForTesting
 import com.exsilicium.common.extension.safeLet
 import com.exsilicium.common.utility.ResourceRetriever
-import com.exsilicium.daggerextension.annotation.ActivityScope
+import com.exsilicium.daggerannotations.ActivityScope
 import javax.inject.Inject
 
 @ActivityScope
