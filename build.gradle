@@ -56,7 +56,7 @@ detekt {
     version = "1.0.0.RC6-3"
     profile("main") {
         baseline = "$projectDir/detekt-baseline.xml"
-        output = "$projectDir/build/outputs/reports/detekt.xml"
+        output = "$projectDir/build/outputs/reports/detekt"
     }
     subprojects {
         profile(it.name) {
