@@ -2,6 +2,7 @@ package com.exsilicium.passagedetail
 
 import com.exsilicium.common.dagger.ActivityComponent
 import com.exsilicium.common.dagger.ActivityModule
+import com.exsilicium.common.ui.ActivityViewInterceptorModule
 import com.exsilicium.common.ui.NavigationModule
 import com.exsilicium.daggerannotations.ActivityScope
 import com.exsilicium.scripture.shared.model.Book
@@ -16,7 +17,8 @@ import dagger.android.AndroidInjector
         modules = [
             ActivityModule::class,
             NavigationModule::class,
-            PassageDetailScreenBindingModule::class
+            PassageDetailScreenBindingModule::class,
+            ActivityViewInterceptorModule::class
         ]
 )
 interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivity> {
@@ -25,7 +27,8 @@ interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivi
     abstract class Builder : AndroidInjector.Builder<PassageDetailActivity>() {
 
         @BindsInstance
-        @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
+        @Suppress("OptionalAbstractKeyword")
+        // See https://github.com/arturbosch/detekt/issues/783. This should be fixed in the next detekt release.
         abstract fun reference(scriptureReference: ScriptureReference)
 
         override fun seedInstance(instance: PassageDetailActivity) {

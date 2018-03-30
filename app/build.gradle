@@ -31,10 +31,12 @@ android {
             applicationIdSuffix ".debug"
             debuggable = true
             minifyEnabled false
+            resValue "string", "app_name", "Scripture Memory Debug"
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "Scripture Memory"
         }
     }
 
@@ -88,7 +90,6 @@ dependencies {
     kapt deps.daggerCompiler
 
     implementation deps.rxAndroid
-    implementation deps.rxBinding
     implementation deps.rxBindingDesign
     implementation deps.rxRelay
 

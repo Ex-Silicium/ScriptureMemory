@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="debug_settings">Debug Settings</string>
+    <string name="debug_app_version_name">Version Name</string>
+    <string name="debug_app_version_code">Version Code</string>
+    <string name="debug_mock_responses">Mock Responses</string>
+</resources>
