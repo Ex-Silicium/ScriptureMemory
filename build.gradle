@@ -4,27 +4,27 @@ buildscript {
         minSdkVersion = 21
         targetSdkVersion = 27
 
-        agpVersion = '3.2.0-alpha04'
+        agpVersion = '3.1.1'
 
-        androidSupportLibraryVersion = '27.1.0'
+        androidSupportLibraryVersion = '27.1.1'
         butterknifeVersion = '9.0.0-SNAPSHOT'
         conductorVersion = '2.1.4'
         daggerVersion = '2.15'
         gsonVersion = '2.8.2'
-        kotlinVersion = '1.2.30'
+        kotlinVersion = '1.2.31'
         kotterknifeVersion = '0.1.0-SNAPSHOT'
-        ktxVersion = '0.2'
-        retrofitVersion = '2.3.0'
+        ktxVersion = '0.3'
+        retrofitVersion = '2.4.0'
         rxAndroidVersion = '2.0.2'
         rxBindingVersion = '2.1.1'
-        rxJavaVersion = '2.1.10'
+        rxJavaVersion = '2.1.12'
         rxKotlinVersion = '2.2.0'
         rxRelayVersion = '2.0.0'
         scriptureCoreVersion = '0.1.2'
-        timberVersion = '4.6.1'
+        timberVersion = '4.7.0'
 
         androidTestRunnerVersion = '1.0.1'
-        espressoVersion = '3.0.2-alpha1'
+        espressoVersion = '3.0.1'
         junitVersion = '4.12'
     }
     repositories {
@@ -40,8 +40,8 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.30"
-    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-3"
+    id "org.jetbrains.kotlin.jvm" version "1.2.31"
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-4"
 }
 
 allprojects {
@@ -53,7 +53,7 @@ allprojects {
 }
 
 detekt {
-    version = "1.0.0.RC6-3"
+    version = "1.0.0.RC6-4"
     profile("main") {
         output = "$projectDir/build/outputs/reports/detekt"
         config = "$projectDir/detekt.yml"
@@ -99,9 +99,9 @@ ext.deps = [
 ]
 
 ext.testDeps = [
-        androidTestRunnerVersion: "com.android.support.test:runner:$androidTestRunnerVersion",
-        espresso                : "com.android.support.test.espresso:espresso-core:$espressoVersion",
-        junit                   : "junit:junit:$junitVersion"
+        androidTestRunner: "com.android.support.test:runner:$androidTestRunnerVersion",
+        espresso         : "com.android.support.test.espresso:espresso-core:$espressoVersion",
+        junit            : "junit:junit:$junitVersion"
 ]
 
 dependencies {
@@ -110,12 +110,12 @@ dependencies {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "1.9"
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "1.9"
     }
 }
