@@ -47,6 +47,6 @@ dependencies {
 }
 
 dependencies {
-    androidTestImplementation testDeps.androidTestRunnerVersion
+    androidTestImplementation testDeps.androidTestRunner
     androidTestImplementation testDeps.espresso
 }
