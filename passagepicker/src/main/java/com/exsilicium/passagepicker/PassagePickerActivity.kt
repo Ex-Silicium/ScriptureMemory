@@ -13,14 +13,17 @@ import com.exsilicium.screennavigator.ScreenTransaction
 import com.exsilicium.scripture.shared.model.Book
 
 class PassagePickerActivity : BaseActivity() {
-    // todo setup for tablet
     override val layoutRes = R.layout.activity_home
     override val rootController: BaseController = BookListController()
 
     companion object {
+        const val REQUEST_CODE_ADD_PASSAGE = 1
+
         fun addPassage(screenNavigator: ScreenNavigator) {
-            // todo add intent processor / result code
-            screenNavigator.push(ScreenTransaction(ActivityScreen(PassagePickerActivity::class)))
+            screenNavigator.push(ScreenTransaction(ActivityScreen(
+                    PassagePickerActivity::class,
+                    requestCode = REQUEST_CODE_ADD_PASSAGE
+            )))
         }
 
         fun addPassageFromBook(screenNavigator: ScreenNavigator, book: Book) {

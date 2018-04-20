@@ -3,5 +3,7 @@
     <string name="debug_settings">Debug Settings</string>
     <string name="debug_app_version_name">Version Name</string>
     <string name="debug_app_version_code">Version Code</string>
+    <string name="debug_app_build_time">Build Time</string>
+    <string name="debug_app_git_sha">Git SHA</string>
     <string name="debug_mock_responses">Mock Responses</string>
 </resources>

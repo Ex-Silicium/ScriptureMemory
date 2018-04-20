@@ -15,7 +15,4 @@ import javax.inject.Singleton
             DebugDrawerCustomizationModule::class
         ]
 )
-internal interface ApplicationComponent {
-
-    fun inject(myApplication: MyApplication)
-}
+internal interface DebugApplicationComponent : FlavorComponent

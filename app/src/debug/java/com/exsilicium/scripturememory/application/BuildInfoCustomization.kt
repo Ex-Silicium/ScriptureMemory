@@ -7,11 +7,11 @@ import com.exsilicium.scripturememory.BuildConfig
 import com.exsilicium.scripturememory.R
 import javax.inject.Inject
 
-internal class VersionCustomization @Inject constructor(
+internal class BuildInfoCustomization @Inject constructor(
 ) : DebugDrawerCustomization {
 
     override fun customize(debugLayout: View) {
-        debugLayout.findViewById<TextView>(R.id.tv_version_name).text = BuildConfig.VERSION_NAME
-        debugLayout.findViewById<TextView>(R.id.tv_version_code).text = BuildConfig.VERSION_CODE.toString()
+        debugLayout.findViewById<TextView>(R.id.tv_build_time).text = BuildConfig.BUILD_TIME
+        debugLayout.findViewById<TextView>(R.id.tv_git_sha).text = BuildConfig.GIT_SHA
     }
 }

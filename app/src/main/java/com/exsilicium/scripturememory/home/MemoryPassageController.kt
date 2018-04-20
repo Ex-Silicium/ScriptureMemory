@@ -1,5 +1,6 @@
 package com.exsilicium.scripturememory.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import butterknife.BindView
 import com.exsilicium.common.base.BaseController
+import com.exsilicium.passagepicker.PassagePickerActivity
 import com.exsilicium.passagepicker.PassagePickerActivity.Companion.addPassage
 import com.exsilicium.screennavigator.ScreenNavigator
 import com.exsilicium.scripturememory.R
@@ -16,6 +18,7 @@ import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.view.visibility
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 internal class MemoryPassageController : BaseController() {
@@ -42,7 +45,9 @@ internal class MemoryPassageController : BaseController() {
         val notLoadingObservable = loadingObservable.map { loading -> !loading }
 
         return arrayOf(
-                RxView.clicks(addActionButton).subscribe { addPassage(screenNavigator) },
+                RxView.clicks(addActionButton)
+                        .debounce(250L, TimeUnit.MILLISECONDS)
+                        .subscribe { addPassage(screenNavigator) },
                 loadingObservable.subscribe(progressBar.visibility()),
                 notLoadingObservable.subscribe(recyclerView.visibility()),
                 notLoadingObservable.subscribe(addActionButton.visibility()),
@@ -79,6 +84,14 @@ internal class MemoryPassageController : BaseController() {
     override fun onRestoreViewState(view: View, savedViewState: Bundle) {
         super.onRestoreViewState(view, savedViewState)
         recyclerView.layoutManager.onRestoreInstanceState(savedViewState.getParcelable(KEY_LIST_STATE))
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == PassagePickerActivity.REQUEST_CODE_ADD_PASSAGE) {
+            TODO("Check resultCode and update with added passage")
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     companion object {

@@ -2,7 +2,6 @@ package com.exsilicium.passagedetail
 
 import com.exsilicium.common.dagger.ActivityComponent
 import com.exsilicium.common.dagger.ActivityModule
-import com.exsilicium.common.ui.ActivityViewInterceptorModule
 import com.exsilicium.common.ui.NavigationModule
 import com.exsilicium.daggerannotations.ActivityScope
 import com.exsilicium.scripture.shared.model.Book
@@ -17,8 +16,7 @@ import dagger.android.AndroidInjector
         modules = [
             ActivityModule::class,
             NavigationModule::class,
-            PassageDetailScreenBindingModule::class,
-            ActivityViewInterceptorModule::class
+            PassageDetailScreenBindingModule::class
         ]
 )
 interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivity> {

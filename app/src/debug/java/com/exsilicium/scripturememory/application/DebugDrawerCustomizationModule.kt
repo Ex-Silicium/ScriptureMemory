@@ -6,9 +6,13 @@ import dagger.Module
 import dagger.multibindings.IntoSet
 
 @Module
-abstract class DebugDrawerCustomizationModule {
+internal abstract class DebugDrawerCustomizationModule {
 
     @Binds
     @IntoSet
     abstract fun provideVersionCustomization(customization: VersionCustomization): DebugDrawerCustomization
+
+    @Binds
+    @IntoSet
+    abstract fun provideBuildInfoCustomization(customization: BuildInfoCustomization): DebugDrawerCustomization
 }

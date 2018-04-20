@@ -3,12 +3,12 @@ package com.exsilicium.common.settings
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import androidx.content.edit
+import androidx.core.content.edit
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DebugPreferences @Inject constructor(
+internal class DebugPreferences @Inject constructor(
         context: Context
 ) {
 
