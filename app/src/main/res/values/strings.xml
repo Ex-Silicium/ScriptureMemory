@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Scripture Memory</string>
     <string name="error_loading_memory_passages">Error Loading Memory Passages</string>
     <string name="no_memory_passages">You don\'t have any memory passages yet</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.exsilicium.common.base
 
 import android.os.Bundle
+import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import com.bluelinelabs.conductor.Conductor
@@ -9,6 +10,7 @@ import com.exsilicium.common.R
 import com.exsilicium.common.dagger.Injector
 import com.exsilicium.common.dagger.ScreenInjector
 import com.exsilicium.common.ui.ActivityLifecycleObserver
+import com.exsilicium.common.ui.ActivityViewInterceptor
 import com.exsilicium.screennavigator.ActivityScreen.Companion.EXTRA_BACK_ANIMATION
 import com.exsilicium.screennavigator.ControllerScreen
 import com.exsilicium.screennavigator.ScreenNavigator
@@ -20,6 +22,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @Inject lateinit var screenInjector: ScreenInjector
     @Inject lateinit var screenNavigator: ScreenNavigator
+    @Inject lateinit var activityViewInterceptor: ActivityViewInterceptor
     @Inject lateinit var lifecycleObservers: Set<@JvmSuppressWildcards ActivityLifecycleObserver>
 
     lateinit var instanceId: String
@@ -32,6 +35,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open val isRoot: Boolean = false
     protected abstract val layoutRes: Int
+        @LayoutRes get
     protected abstract val rootController: BaseController
 
     final override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +48,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         lifecycleObservers.forEach { it.register(this) }
 
-        setContentView(layoutRes)
+        activityViewInterceptor.setContentView(this, layoutRes)
         @Suppress("TooGenericExceptionThrown")
         val screenContainer = findViewById<ViewGroup>(R.id.screen_container)
                 ?: throw NullPointerException("Activity must have a view with id: screen_container")
@@ -73,6 +77,7 @@ abstract class BaseActivity : AppCompatActivity() {
     final override fun onDestroy() {
         super.onDestroy()
         if (isFinishing) Injector.clearComponent(this)
+        activityViewInterceptor.clear()
     }
 
     private fun monitorBackStack() {
