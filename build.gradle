@@ -11,7 +11,7 @@ buildscript {
         conductorVersion = '2.1.4'
         daggerVersion = '2.15'
         gsonVersion = '2.8.2'
-        kotlinVersion = '1.2.31'
+        kotlinVersion = '1.2.40'
         kotterknifeVersion = '0.1.0-SNAPSHOT'
         ktxVersion = '0.3'
         retrofitVersion = '2.4.0'
@@ -40,7 +40,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.31"
+    id "org.jetbrains.kotlin.jvm" version "1.2.40"
     id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-4"
 }
 
