@@ -11,10 +11,8 @@ import javax.inject.Singleton
         modules = [
             ApplicationModule::class,
             ActivityBindingModule::class,
-            NetworkModule::class
+            NetworkModule::class,
+            DebugDrawerCustomizationModule::class
         ]
 )
-internal interface ApplicationComponent {
-
-    fun inject(myApplication: MyApplication)
-}
+internal interface DebugApplicationComponent : FlavorComponent

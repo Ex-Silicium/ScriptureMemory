@@ -6,7 +6,30 @@ plugins {
     id "org.jetbrains.kotlin.kapt"
 }
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def theKeyAlias = "\"Your Key Alias here\""
+def theKeyPassword = "\"Your Key Password here\""
+def keyStoreFile = "\"Your Key Store File here\""
+def keyStorePassword = "\"Your Key Store Password here\""
+try {
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    theKeyAlias = keystoreProperties['keyAlias']
+    theKeyPassword = keystoreProperties['keyPassword']
+    keyStoreFile = keystoreProperties['storeFile']
+    keyStorePassword = keystoreProperties['storePassword']
+} catch (FileNotFoundException ignored) {
+}
+
 android {
+    signingConfigs {
+        config {
+            keyAlias theKeyAlias
+            keyPassword theKeyPassword
+            storeFile file(keyStoreFile)
+            storePassword keyStorePassword
+        }
+    }
     def versionMajor = 0
     def versionMinor = 1
     def versionPatch = 0
@@ -21,30 +44,28 @@ android {
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
     lintOptions {
         baseline file("lint-baseline.xml")
     }
-
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
-            debuggable = true
+            debuggable true
             minifyEnabled false
+            resValue "string", "app_name", "Scripture Memory Debug"
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "Scripture Memory"
+            signingConfig signingConfigs.config
         }
     }
-
     buildTypes.each {
         it.buildConfigField 'String', 'GIT_SHA', "\"${gitSha()}\""
         it.buildConfigField 'String', 'BUILD_TIME', "\"${buildTime()}\""
     }
-
     flavorDimensions "tier"
-
     productFlavors {
         free {
             applicationIdSuffix ".free"
@@ -68,30 +89,23 @@ static def buildTime() {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common')
     implementation project(':network')
     implementation project(':passagedetail')
     implementation project(':passagepicker')
     implementation project(':screennavigator')
-
     implementation deps.androidSupportCard
     implementation deps.androidSupportDesign
     implementation deps.androidSupportRecyclerView
-
     implementation deps.butterknife
     kapt deps.butterknifeCompiler
     implementation deps.kotterknife
-
     kapt deps.daggerAndroidProcessor
     kapt deps.daggerCompiler
-
     implementation deps.rxAndroid
-    implementation deps.rxBinding
     implementation deps.rxBindingDesign
     implementation deps.rxRelay
-
     implementation deps.scriptureCore
 }
 

@@ -21,7 +21,9 @@ data class ActivityScreen(
     ) {
         val intent = Intent(activity, activityClass.java)
 
-        if (args != null) intent.putExtras(args)
+        args?.let {
+            intent.putExtras(it)
+        }
 
         intentProcessor?.processIntent(intent)
 

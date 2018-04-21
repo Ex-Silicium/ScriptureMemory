@@ -26,7 +26,7 @@ android {
             minifyEnabled false
         }
         release {
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
@@ -52,6 +52,7 @@ dependencies {
     kapt deps.daggerAndroidProcessor
     kapt deps.daggerCompiler
 
+    api deps.rxBinding
     api deps.rxJava
     api deps.rxKotlin
     implementation deps.scriptureCore
