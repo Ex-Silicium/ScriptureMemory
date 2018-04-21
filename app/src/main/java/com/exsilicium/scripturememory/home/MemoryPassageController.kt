@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import butterknife.BindView
 import com.exsilicium.common.base.BaseController
+import com.exsilicium.common.ui.Constants.TIMEOUT_DEFAULT_MILLIS
 import com.exsilicium.passagepicker.PassagePickerActivity
 import com.exsilicium.passagepicker.PassagePickerActivity.Companion.addPassage
 import com.exsilicium.screennavigator.ScreenNavigator
@@ -46,7 +47,8 @@ internal class MemoryPassageController : BaseController() {
 
         return arrayOf(
                 RxView.clicks(addActionButton)
-                        .debounce(250L, TimeUnit.MILLISECONDS)
+                        .debounce(TIMEOUT_DEFAULT_MILLIS, TimeUnit.MILLISECONDS)
+                        .observeOn(AndroidSchedulers.mainThread())
                         .subscribe { addPassage(screenNavigator) },
                 loadingObservable.subscribe(progressBar.visibility()),
                 notLoadingObservable.subscribe(recyclerView.visibility()),
