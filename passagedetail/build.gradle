@@ -54,3 +54,7 @@ dependencies {
 
     implementation deps.scriptureCore
 }
+
+dependencies {
+    testImplementation testDeps.junit
+}
