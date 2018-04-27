@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import com.exsilicium.scripturememory.R
-import com.exsilicium.scripturememory.home.model.MemoryPassage
+import com.exsilicium.scripturememory.model.MemoryPassage
 import kotterknife.bindView
 
 internal class MemoryPassageViewHolder(

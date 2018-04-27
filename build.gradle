@@ -4,7 +4,7 @@ buildscript {
         minSdkVersion = 21
         targetSdkVersion = 27
 
-        agpVersion = '3.1.1'
+        agpVersion = '3.1.2'
 
         androidSupportLibraryVersion = '27.1.1'
         butterknifeVersion = '9.0.0-SNAPSHOT'
@@ -25,6 +25,7 @@ buildscript {
 
         androidTestRunnerVersion = '1.0.1'
         espressoVersion = '3.0.1'
+        mockitoKotlinVersion = '1.5.0'
         junitVersion = '4.12'
     }
     repositories {
@@ -78,12 +79,11 @@ ext.deps = [
         butterknife               : "com.jakewharton:butterknife:$butterknifeVersion",
         butterknifeCompiler       : "com.jakewharton:butterknife-compiler:$butterknifeVersion",
         conductor                 : "com.bluelinelabs:conductor:$conductorVersion",
-        dagger                    : "com.google.dagger:dagger:${daggerVersion}",
-        daggerAndroidProcessor    : "com.google.dagger:dagger-android-processor:$daggerVersion",
+        dagger                    : "com.google.dagger:dagger:$daggerVersion",
         daggerAndroidSupport      : "com.google.dagger:dagger-android-support:$daggerVersion",
         daggerCompiler            : "com.google.dagger:dagger-compiler:$daggerVersion",
         gson                      : "com.google.code.gson:gson:$gsonVersion",
-        kotlinStandardLib         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+        kotlinStandardLib         : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
         kotterknife               : "com.jakewharton:kotterknife:$kotterknifeVersion",
         retrofit                  : "com.squareup.retrofit2:retrofit:$retrofitVersion",
         retrofitGsonConverter     : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
@@ -101,12 +101,9 @@ ext.deps = [
 ext.testDeps = [
         androidTestRunner: "com.android.support.test:runner:$androidTestRunnerVersion",
         espresso         : "com.android.support.test.espresso:espresso-core:$espressoVersion",
+        mockitoKotlin    : "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
         junit            : "junit:junit:$junitVersion"
 ]
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-}
 
 compileKotlin {
     kotlinOptions {

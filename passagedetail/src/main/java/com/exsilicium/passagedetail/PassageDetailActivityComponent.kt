@@ -27,13 +27,13 @@ interface PassageDetailActivityComponent : ActivityComponent<PassageDetailActivi
         @BindsInstance
         @Suppress("OptionalAbstractKeyword")
         // See https://github.com/arturbosch/detekt/issues/783. This should be fixed in the next detekt release.
-        abstract fun reference(scriptureReference: ScriptureReference)
+        abstract fun bindReference(scriptureReference: ScriptureReference)
 
         override fun seedInstance(instance: PassageDetailActivity) {
             val book = Book.values()[instance.intent.getIntExtra(PassageDetailController.KEY_BOOK_ORDINAL, 0)]
             val chapter = instance.intent.getIntExtra(PassageDetailController.KEY_CHAPTER, 0)
             val verseNumber = instance.intent.getIntExtra(PassageDetailController.KEY_VERSE, 0)
-            reference(ScriptureReference(book, Verse(chapter, verseNumber)))
+            bindReference(ScriptureReference(book, Verse(chapter, verseNumber)))
         }
     }
 }

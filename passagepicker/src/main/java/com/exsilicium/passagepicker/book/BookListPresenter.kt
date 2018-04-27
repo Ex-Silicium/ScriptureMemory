@@ -12,7 +12,7 @@ internal class BookListPresenter @Inject constructor(
 ) : OnBookClickListener {
 
     init {
-        viewModel.booksFiltered().accept(Book.values().toList())
+        viewModel.booksFiltered().accept(Book.values().asList())
     }
 
     override fun onClick(book: Book) {

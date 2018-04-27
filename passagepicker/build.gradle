@@ -37,8 +37,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation project(':common')
     implementation project(':screennavigator')
     implementation project(':squaretextview')
@@ -53,7 +51,6 @@ dependencies {
     kapt deps.butterknifeCompiler
     implementation deps.kotterknife
 
-    kapt deps.daggerAndroidProcessor
     kapt deps.daggerCompiler
 
     implementation deps.rxAndroid
@@ -61,4 +58,9 @@ dependencies {
     implementation deps.rxRelay
 
     implementation deps.scriptureCore
+}
+
+dependencies {
+    testImplementation testDeps.junit
+    testImplementation testDeps.mockitoKotlin
 }

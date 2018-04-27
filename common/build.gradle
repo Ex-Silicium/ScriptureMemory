@@ -37,8 +37,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     api project(':daggerannotations')
     implementation project(':screennavigator')
 
@@ -49,7 +47,6 @@ dependencies {
     kapt deps.butterknifeCompiler
 
     api deps.daggerAndroidSupport
-    kapt deps.daggerAndroidProcessor
     kapt deps.daggerCompiler
 
     api deps.rxBinding
@@ -61,9 +58,4 @@ dependencies {
 
 dependencies {
     testImplementation testDeps.junit
-}
-
-dependencies {
-    androidTestImplementation testDeps.androidTestRunner
-    androidTestImplementation testDeps.espresso
 }

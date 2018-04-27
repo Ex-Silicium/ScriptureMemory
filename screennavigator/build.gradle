@@ -41,20 +41,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation deps.androidSupportAppCompat
 
     api deps.conductor
 
     implementation deps.kotlinStandardLib
-}
-
-dependencies {
-    testImplementation testDeps.junit
-}
-
-dependencies {
-    androidTestImplementation testDeps.androidTestRunner
-    androidTestImplementation testDeps.espresso
 }

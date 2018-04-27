@@ -38,6 +38,7 @@ internal class MemoryPassageController : BaseController() {
 
     override fun onInjected() {
         super.onInjected()
+        presenter.loadMemoryPassages()
         adapter = MemoryPassageAdapter(presenter)
     }
 
