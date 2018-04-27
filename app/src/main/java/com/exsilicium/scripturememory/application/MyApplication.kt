@@ -1,12 +1,13 @@
 package com.exsilicium.scripturememory.application
 
+import android.support.annotation.VisibleForTesting
 import com.exsilicium.common.base.BaseApplication
 import com.exsilicium.scripturememory.BuildConfig
 import timber.log.Timber
 
 internal class MyApplication : BaseApplication() {
 
-    private lateinit var component: MainComponent
+    @VisibleForTesting lateinit var component: MainComponent
 
     override fun onCreate() {
         super.onCreate()

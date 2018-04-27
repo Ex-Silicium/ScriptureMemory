@@ -37,8 +37,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation project(':common')
     implementation project(':network')
     implementation project(':screennavigator')
@@ -53,4 +51,13 @@ dependencies {
     implementation deps.rxRelay
 
     implementation deps.scriptureCore
+}
+
+dependencies {
+    debugImplementation project(':testutils')
+}
+
+dependencies {
+    testImplementation testDeps.junit
+    testImplementation testDeps.mockitoKotlin
 }

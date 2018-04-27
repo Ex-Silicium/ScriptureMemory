@@ -7,7 +7,9 @@ import com.exsilicium.common.base.BaseActivity
 import com.exsilicium.common.base.BaseApplication
 import dagger.android.AndroidInjector
 import javax.inject.Provider
+import javax.inject.Singleton
 
+@Singleton
 class ActivityInjector(
         private val activityInjectors: Map<Class<out Activity>, Provider<AndroidInjector.Factory<out Activity>>>,
         private val lifecyclePlugin: ComponentLifecyclePlugin

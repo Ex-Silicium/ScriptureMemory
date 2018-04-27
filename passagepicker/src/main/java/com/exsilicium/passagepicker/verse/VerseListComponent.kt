@@ -24,16 +24,16 @@ internal interface VerseListComponent : AndroidInjector<VerseListController> {
 
         @BindsInstance
         @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
-        abstract fun book(book: Book)
+        abstract fun bindBook(book: Book)
 
         @BindsInstance
         @Named(KEY_CHAPTER)
         @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
-        abstract fun chapter(chapter: Int)
+        abstract fun bindChapter(chapter: Int)
 
         override fun seedInstance(instance: VerseListController) {
-            book(Book.values()[instance.args.getInt(KEY_BOOK_ORDINAL)])
-            chapter(instance.args.getInt(KEY_CHAPTER))
+            bindBook(Book.values()[instance.args.getInt(KEY_BOOK_ORDINAL)])
+            bindChapter(instance.args.getInt(KEY_CHAPTER))
         }
     }
 }

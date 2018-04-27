@@ -5,7 +5,7 @@ import com.exsilicium.common.disposable.DisposableManager
 import com.exsilicium.common.utility.UiUtils
 import com.exsilicium.daggerannotations.ForScreen
 import com.exsilicium.daggerannotations.ScreenScope
-import com.exsilicium.scripturememory.home.model.MemoryPassage
+import com.exsilicium.scripturememory.model.MemoryPassage
 import javax.inject.Inject
 
 @ScreenScope
@@ -13,16 +13,12 @@ internal class MemoryPassagePresenter @Inject constructor(
         @ForScreen private val disposableManager: DisposableManager,
         private val context: Context,
         private val viewModel: MemoryPassageViewModel,
-        private val memoryPassagesRequester: MemoryPassagesRequester
+        private val passageRepository: MemoryPassageRepository
 ) : MemoryPassageViewHolder.MemoryPassageClickListener {
 
-    init {
-        loadMemoryPassages()
-    }
-
-    private fun loadMemoryPassages() {
+    fun loadMemoryPassages() {
         disposableManager.add(
-                memoryPassagesRequester.getMemoryPassages()
+                passageRepository.getMemoryPassages()
                         .doOnSubscribe { viewModel.loadingUpdated().accept(true) }
                         .doOnEvent { _, _ -> viewModel.loadingUpdated().accept(false) }
                         .subscribe(viewModel.memoryPassagesUpdated(), viewModel.onError())

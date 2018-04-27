@@ -20,10 +20,10 @@ import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    @Inject lateinit var screenInjector: ScreenInjector
-    @Inject lateinit var screenNavigator: ScreenNavigator
-    @Inject lateinit var activityViewInterceptor: ActivityViewInterceptor
-    @Inject lateinit var lifecycleObservers: Set<@JvmSuppressWildcards ActivityLifecycleObserver>
+    @Inject internal lateinit var screenInjector: ScreenInjector
+    @Inject internal lateinit var screenNavigator: ScreenNavigator
+    @Inject internal lateinit var activityViewInterceptor: ActivityViewInterceptor
+    @Inject internal lateinit var lifecycleObservers: Set<@JvmSuppressWildcards ActivityLifecycleObserver>
 
     lateinit var instanceId: String
         private set

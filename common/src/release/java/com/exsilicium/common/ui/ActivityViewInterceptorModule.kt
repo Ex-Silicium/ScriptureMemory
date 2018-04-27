@@ -11,7 +11,7 @@ abstract class ActivityViewInterceptorModule {
 
         @JvmStatic
         @Provides
-        fun provideDefaultActivityViewInterceptor(): ActivityViewInterceptor {
+        internal fun provideDefaultActivityViewInterceptor(): ActivityViewInterceptor {
             return ActivityViewInterceptor.DefaultActivityViewInterceptor()
         }
     }

@@ -13,11 +13,7 @@ internal class PassageDetailPresenter @Inject constructor(
         private val requester: PassageDetailRequester
 ) {
 
-    init {
-        loadPassageDetails()
-    }
-
-    private fun loadPassageDetails() {
+    fun loadPassageDetails() {
         disposableManager.add(
                 requester.getDetails()
                         .doOnSubscribe { viewModel.loadingUpdated().accept(true) }

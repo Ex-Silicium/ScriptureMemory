@@ -23,7 +23,7 @@ try {
 
 android {
     signingConfigs {
-        config {
+        upload {
             keyAlias theKeyAlias
             keyPassword theKeyPassword
             storeFile file(keyStoreFile)
@@ -58,7 +58,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue "string", "app_name", "Scripture Memory"
-            signingConfig signingConfigs.config
+            signingConfig signingConfigs.upload
         }
     }
     buildTypes.each {
@@ -89,7 +89,6 @@ static def buildTime() {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common')
     implementation project(':network')
     implementation project(':passagedetail')
@@ -101,7 +100,6 @@ dependencies {
     implementation deps.butterknife
     kapt deps.butterknifeCompiler
     implementation deps.kotterknife
-    kapt deps.daggerAndroidProcessor
     kapt deps.daggerCompiler
     implementation deps.rxAndroid
     implementation deps.rxBindingDesign
@@ -110,11 +108,22 @@ dependencies {
 }
 
 dependencies {
-    testImplementation testDeps.junit
+    debugImplementation project(':testutils')
 }
 
 dependencies {
+    testImplementation project(':testutils')
+
+    testImplementation testDeps.junit
+    testImplementation testDeps.mockitoKotlin
+}
+
+dependencies {
+    androidTestImplementation project(':testutils')
+
     androidTestImplementation(testDeps.espresso, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    kaptAndroidTest deps.daggerCompiler
 }

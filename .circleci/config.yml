@@ -50,6 +50,9 @@ jobs:
       - store_artifacts:
           path: squaretextview/build/reports
           destination: reports/squaretextview
+      - store_artifacts:
+          path: testutils/build/reports
+          destination: reports/testutils
       - store_test_results:
           path: app/build/test-results
       - store_test_results:
@@ -64,3 +67,5 @@ jobs:
           path: screennavigator/build/test-results
       - store_test_results:
           path: squaretextview/build/test-results
+      - store_test_results:
+          path: testutils/build/test-results

@@ -12,7 +12,6 @@ import javax.inject.Inject
 
 internal class PassageDetailController : BaseController() {
     @Inject lateinit var scriptureReference: ScriptureReference
-    @Suppress("unused")
     @Inject lateinit var presenter: PassageDetailPresenter
     @Inject lateinit var viewModel: PassageDetailViewModel
 
@@ -21,7 +20,11 @@ internal class PassageDetailController : BaseController() {
 
     override val layoutRes = R.layout.screen_passage_detail
 
-    override fun title() = scriptureReference.toString()
+    override fun title() = "$scriptureReference"
+
+    override fun onInjected() {
+        presenter.loadPassageDetails()
+    }
 
     override fun onViewBound(view: View) {}
 

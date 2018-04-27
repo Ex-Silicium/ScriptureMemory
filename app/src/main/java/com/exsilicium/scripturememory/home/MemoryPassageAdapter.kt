@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.home.MemoryPassageViewHolder.MemoryPassageClickListener
-import com.exsilicium.scripturememory.home.model.MemoryPassage
+import com.exsilicium.scripturememory.model.MemoryPassage
 
 internal class MemoryPassageAdapter(
         private val clickListener: MemoryPassageClickListener

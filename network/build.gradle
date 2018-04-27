@@ -43,9 +43,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation project(':common')
+    debugImplementation project(':testutils')
 
     kapt deps.daggerCompiler
 

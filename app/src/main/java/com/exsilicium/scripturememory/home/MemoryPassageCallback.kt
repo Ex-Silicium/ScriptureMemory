@@ -1,7 +1,7 @@
 package com.exsilicium.scripturememory.home
 
 import android.support.v7.util.DiffUtil
-import com.exsilicium.scripturememory.home.model.MemoryPassage
+import com.exsilicium.scripturememory.model.MemoryPassage
 
 internal class MemoryPassageCallback(
         private val oldList: List<MemoryPassage>,

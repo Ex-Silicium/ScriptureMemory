@@ -8,7 +8,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-internal class DebugPreferences @Inject constructor(
+class DebugPreferences @Inject internal constructor(
         context: Context
 ) {
 

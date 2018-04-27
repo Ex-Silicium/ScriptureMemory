@@ -12,7 +12,7 @@ internal class PassageDetailViewModel @Inject constructor(
 ) {
 
     private val loadingRelay = BehaviorRelay.create<Boolean>()
-    private val errorRelay = BehaviorRelay.createDefault(-1)
+    private val errorRelay = BehaviorRelay.create<Int>()
     private val passageTextRelay = BehaviorRelay.create<String>()
 
     fun loading(): Observable<Boolean> = loadingRelay

@@ -1,4 +1,4 @@
-package com.exsilicium.scripturememory.home.model
+package com.exsilicium.scripturememory.model
 
 import com.exsilicium.scripture.shared.model.ScriptureReference
 
