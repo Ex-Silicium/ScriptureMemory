@@ -1,6 +1,7 @@
 package com.exsilicium.passagedetail.service
 
-import com.exsilicium.mockutils.MockFileName.PASSAGE_JOHN_3_16_SUCCESS
+import com.exsilicium.mockutils.MockFileName.getMockFileName
+import com.exsilicium.mockutils.MockMemoryPassages.MOCK_REFERENCE_JOHN_3_16
 import com.exsilicium.passagedetail.model.PassageResponse
 import com.exsilicium.scripture.shared.model.ScriptureReference
 import com.exsilicium.testutils.JsonTestUtil
@@ -33,7 +34,7 @@ class TestPassageService @Inject constructor(
         return if (sendError) {
             Single.error(IOException())
         } else {
-            Single.just(jsonTestUtil.loadMockJson(PASSAGE_JOHN_3_16_SUCCESS, PassageResponse::class))
+            Single.just(jsonTestUtil.loadMockJson(getMockFileName(MOCK_REFERENCE_JOHN_3_16), PassageResponse::class))
         }
     }
 }

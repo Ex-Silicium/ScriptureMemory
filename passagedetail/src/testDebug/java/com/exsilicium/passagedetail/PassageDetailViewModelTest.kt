@@ -1,6 +1,7 @@
 package com.exsilicium.passagedetail
 
-import com.exsilicium.mockutils.MockFileName.PASSAGE_JOHN_3_16_SUCCESS
+import com.exsilicium.mockutils.MockFileName.getMockFileName
+import com.exsilicium.mockutils.MockMemoryPassages.MOCK_REFERENCE_JOHN_3_16
 import com.exsilicium.passagedetail.model.PassageResponse
 import com.exsilicium.testutils.JsonTestUtil
 import org.junit.Before
@@ -25,7 +26,7 @@ internal class PassageDetailViewModelTest {
     }
 
     @Test fun passageUpdates() {
-        val response = JsonTestUtil.loadMockJson(PASSAGE_JOHN_3_16_SUCCESS, PassageResponse::class)
+        val response = JsonTestUtil.loadMockJson(getMockFileName(MOCK_REFERENCE_JOHN_3_16), PassageResponse::class)
 
         viewModel.passageUpdated().accept(response.passage())
 

@@ -1,6 +1,7 @@
 package com.exsilicium.passagedetail
 
-import com.exsilicium.mockutils.MockFileName.PASSAGE_JOHN_3_16_SUCCESS
+import com.exsilicium.mockutils.MockFileName.getMockFileName
+import com.exsilicium.mockutils.MockMemoryPassages.MOCK_REFERENCE_JOHN_3_16
 import com.exsilicium.passagedetail.model.PassageResponse
 import com.exsilicium.passagedetail.service.PassageDetailRequester
 import com.exsilicium.testutils.JsonTestUtil
@@ -59,7 +60,10 @@ internal class PassageDetailPresenterTest {
         }
     }
 
-    private fun setupSuccess() = JsonTestUtil.loadMockJson(PASSAGE_JOHN_3_16_SUCCESS, PassageResponse::class).apply {
+    private fun setupSuccess() = JsonTestUtil.loadMockJson(
+            getMockFileName(MOCK_REFERENCE_JOHN_3_16),
+            PassageResponse::class
+    ).apply {
         whenever(mockRequester.getDetails()).thenReturn(Single.just(passage()))
     }
 
