@@ -44,7 +44,7 @@ references:
     run:
       name: Export Firebase Service Account key environment variable
       command: |
-        echo 'export FIREBASE_SERVICE_KEY="FIREBASE_SERVICE_KEY"' >> $BASH_ENV
+        echo 'export FIREBASE_SERVICE_KEY="$FIREBASE_SERVICE_KEY"' >> $BASH_ENV
         source $BASH_ENV
   decode_firebase_key: &decode_firebase_key
     run:
