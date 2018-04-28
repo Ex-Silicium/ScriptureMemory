@@ -6,5 +6,5 @@ package com.exsilicium.mockutils
  */
 object MockFileName {
 
-    const val PASSAGE_JOHN_3_16_SUCCESS = "get_passage_detail_john_3_16.json"
+    const val PASSAGE_JOHN_3_16_SUCCESS = "v3/passage/text/get_passage_detail_john_3_16.json"
 }
