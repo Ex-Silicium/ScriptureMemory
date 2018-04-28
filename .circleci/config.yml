@@ -47,7 +47,7 @@ references:
   decode_firebase_key: &decode_firebase_key
     run:
       name: Decode Firebase Service Account credentials
-      command: echo FIREBASE_SERVICE_KEY | base64 -D > ${HOME}/client-secret.json
+      command: echo $FIREBASE_SERVICE_KEY | base64 -di > ${HOME}/client-secret.json
 
 jobs:
   ## Build debug APK and instrumented test APK
