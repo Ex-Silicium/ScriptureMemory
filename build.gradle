@@ -10,8 +10,8 @@ buildscript {
         butterknifeVersion = '9.0.0-SNAPSHOT'
         conductorVersion = '2.1.4'
         daggerVersion = '2.15'
-        gsonVersion = '2.8.2'
-        kotlinVersion = '1.2.40'
+        gsonVersion = '2.8.3'
+        kotlinVersion = '1.2.41'
         kotterknifeVersion = '0.1.0-SNAPSHOT'
         ktxVersion = '0.3'
         retrofitVersion = '2.4.0'
@@ -25,8 +25,8 @@ buildscript {
 
         androidTestRunnerVersion = '1.0.1'
         espressoVersion = '3.0.1'
-        mockitoKotlinVersion = '1.5.0'
         junitVersion = '4.12'
+        mockitoKotlinVersion = '1.5.0'
     }
     repositories {
         google()
@@ -34,15 +34,15 @@ buildscript {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
-        classpath "com.jakewharton:butterknife-gradle-plugin:$butterknifeVersion"
         classpath "com.android.tools.build:gradle:$agpVersion"
+        classpath "com.jakewharton:butterknife-gradle-plugin:$butterknifeVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.40"
     id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-4"
+    id "org.jetbrains.kotlin.jvm" version "1.2.41"
 }
 
 allprojects {
