@@ -2,6 +2,7 @@ package com.exsilicium.common.dagger
 
 import com.exsilicium.common.disposable.DefaultDisposableManager
 import com.exsilicium.common.disposable.DisposableManager
+import com.exsilicium.common.nightmode.NightModeManager
 import com.exsilicium.common.toolbar.ToolbarService
 import com.exsilicium.common.ui.ActivityLifecycleObserver
 import com.exsilicium.common.ui.ActivityViewInterceptorModule
@@ -20,7 +21,15 @@ abstract class ActivityModule {
 
     @Binds
     @IntoSet
-    abstract fun bindToolbarActivityLifecycleObserver(toolbarService: ToolbarService): ActivityLifecycleObserver
+    internal abstract fun bindToolbarActivityLifecycleObserver(
+            toolbarService: ToolbarService
+    ): ActivityLifecycleObserver
+
+    @Binds
+    @IntoSet
+    internal abstract fun provideNightModeActivityLifecycleObserver(
+            nightModeManager: NightModeManager
+    ): ActivityLifecycleObserver
 
     @Binds
     @ForActivity

@@ -11,17 +11,23 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.exsilicium.common.R
 import com.exsilicium.common.R2
+import com.exsilicium.common.nightmode.NightModeManager
 import com.exsilicium.common.settings.DebugPreferences
-import com.jakewharton.rxbinding2.view.RxView
-import com.jakewharton.rxbinding2.widget.RxCompoundButton
+import com.exsilicium.common.settings.Preferences
+import com.jakewharton.rxbinding2.view.RxView.visibility
+import com.jakewharton.rxbinding2.widget.RxCompoundButton.checkedChanges
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
+import javax.inject.Provider
 
 internal class DebugActivityViewInterceptor @Inject constructor(
+        private val preferences: Preferences,
         private val debugPreferences: DebugPreferences,
+        private val nightModeManagerProvider: Provider<NightModeManager>,
         private val customizations: Set<@JvmSuppressWildcards DebugDrawerCustomization>
 ) : ActivityViewInterceptor {
 
+    @BindView(R2.id.switch_night_mode) lateinit var nightModeSwitch: Switch
     @BindView(R2.id.switch_mock_responses) lateinit var mockResponseSwitch: Switch
     @BindView(R2.id.ll_mock_responses_container) lateinit var mockResponsesContainer: View
 
@@ -55,12 +61,17 @@ internal class DebugActivityViewInterceptor @Inject constructor(
     }
 
     private fun initializePreferences() {
+        nightModeSwitch.isChecked = preferences.useNightMode
         mockResponseSwitch.isChecked = debugPreferences.useMockPreferences
 
         disposables.addAll(
-                RxCompoundButton.checkedChanges(mockResponseSwitch)
-                        .doOnNext(RxView.visibility(mockResponsesContainer))
-                        .subscribe { checked -> debugPreferences.useMockPreferences = checked }
+                checkedChanges(nightModeSwitch)
+                        .skipInitialValue()
+                        .subscribe(nightModeManagerProvider.get()::setUseNightMode),
+                checkedChanges(mockResponseSwitch)
+                        .skipInitialValue()
+                        .doOnNext(visibility(mockResponsesContainer))
+                        .subscribe { debugPreferences.useMockPreferences = it }
         )
     }
 }

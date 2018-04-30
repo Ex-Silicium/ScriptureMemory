@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF6D00</color>
+    <color name="colorPrimaryDark">#C43c00</color>
+    <color name="colorAccent">#FF9E40</color>
+
+    <color name="fab_tint">@color/colorPrimaryDark</color>
+
+    <color name="background_filter">#222</color>
+    <color name="background_list_item_book">@color/black</color>
+    <color name="background_list_item_number">@color/black</color>
+    <color name="background_passage_detail">@color/dark_grey</color>
+
+    <color name="text_list_item_book">@color/light_grey</color>
+    <color name="text_list_item_number">@color/white</color>
+    <color name="text_filter">@color/colorPrimary</color>
+    <color name="text_filter_hint">@color/colorAccent</color>
+    <color name="text_toolbar">@color/black</color>
+    <color name="text_home_message">@color/black</color>
+    <color name="text_passage_detail">@color/light_grey</color>
+</resources>

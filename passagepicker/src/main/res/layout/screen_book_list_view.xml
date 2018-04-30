@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background_filter"
             android:elevation="5dp"
             android:padding="6dp"
             app:layout_anchor="@+id/recycler_view"
@@ -24,7 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/hint_filter_books"
-                android:inputType="text"/>
+                android:textColorHint="@color/text_filter_hint"
+                android:textColor="@color/text_filter"
+                android:inputType="text" />
         </LinearLayout>
 
         <FrameLayout
@@ -38,7 +42,7 @@
                 android:layout_gravity="center"
                 android:visibility="gone"
                 tools:text="No books match 'xyz'"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -46,8 +50,7 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 tools:listitem="@layout/list_item_book"
-                tools:visibility="gone"
-                />
+                tools:visibility="gone" />
         </FrameLayout>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

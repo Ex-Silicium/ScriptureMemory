@@ -12,7 +12,9 @@ import com.exsilicium.screennavigator.ScreenNavigator
 import com.exsilicium.screennavigator.ScreenTransaction
 import com.exsilicium.scripture.shared.model.Book
 
-class PassagePickerActivity : BaseActivity() {
+class PassagePickerActivity internal constructor(
+) : BaseActivity() {
+
     override val layoutRes = R.layout.activity_home
     override val rootController: BaseController = BookListController()
 
