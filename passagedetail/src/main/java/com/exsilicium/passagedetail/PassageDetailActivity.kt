@@ -13,7 +13,8 @@ import com.exsilicium.screennavigator.ScreenTransaction
 import com.exsilicium.scripture.shared.model.ScriptureReference
 import com.exsilicium.scripture.shared.model.VerseRanges
 
-class PassageDetailActivity : BaseActivity() {
+class PassageDetailActivity internal constructor(
+) : BaseActivity() {
 
     override val layoutRes = R.layout.activity_home
     override val rootController: BaseController = PassageDetailController()

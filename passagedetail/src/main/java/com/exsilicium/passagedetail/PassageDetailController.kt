@@ -47,9 +47,9 @@ internal class PassageDetailController : BaseController() {
     private fun handleError() = Consumer { errorResId: Int ->
         val hasError = errorResId != -1
         val colorRes = if (hasError) {
-            R.color.text_fail_red
+            R.color.fail_red
         } else {
-            R.color.text_grey
+            R.color.text_passage_detail
         }
         passageText.setTextColor(resourceRetriever.getColor(colorRes))
         if (hasError) passageText.setText(errorResId)

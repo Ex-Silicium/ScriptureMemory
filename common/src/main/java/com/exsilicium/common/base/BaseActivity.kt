@@ -1,5 +1,8 @@
 package com.exsilicium.common.base
 
+import android.app.UiModeManager
+import android.app.UiModeManager.MODE_NIGHT_NO
+import android.app.UiModeManager.MODE_NIGHT_YES
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +12,7 @@ import com.bluelinelabs.conductor.Router
 import com.exsilicium.common.R
 import com.exsilicium.common.dagger.Injector
 import com.exsilicium.common.dagger.ScreenInjector
+import com.exsilicium.common.settings.Preferences
 import com.exsilicium.common.ui.ActivityLifecycleObserver
 import com.exsilicium.common.ui.ActivityViewInterceptor
 import com.exsilicium.screennavigator.ActivityScreen.Companion.EXTRA_BACK_ANIMATION
@@ -20,14 +24,15 @@ import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
 
+    @Inject internal lateinit var preferences: Preferences
     @Inject internal lateinit var screenInjector: ScreenInjector
     @Inject internal lateinit var screenNavigator: ScreenNavigator
     @Inject internal lateinit var activityViewInterceptor: ActivityViewInterceptor
     @Inject internal lateinit var lifecycleObservers: Set<@JvmSuppressWildcards ActivityLifecycleObserver>
 
-    lateinit var instanceId: String
+    internal lateinit var instanceId: String
         private set
-    lateinit var router: Router
+    internal lateinit var router: Router
         private set
 
     var backAnimation = -1
@@ -49,6 +54,9 @@ abstract class BaseActivity : AppCompatActivity() {
         lifecycleObservers.forEach { it.register(this) }
 
         activityViewInterceptor.setContentView(this, layoutRes)
+
+        setSupportActionBar(findViewById(R.id.toolbar))
+
         @Suppress("TooGenericExceptionThrown")
         val screenContainer = findViewById<ViewGroup>(R.id.screen_container)
                 ?: throw NullPointerException("Activity must have a view with id: screen_container")
@@ -63,6 +71,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
         backAnimation = intent.getIntExtra(EXTRA_BACK_ANIMATION, -1)
         if (backAnimation == -1) backAnimation = R.anim.slide_out_to_right
+
+        (getSystemService(UI_MODE_SERVICE) as UiModeManager).nightMode =
+                if (preferences.useNightMode) MODE_NIGHT_YES else MODE_NIGHT_NO
     }
 
     final override fun onSaveInstanceState(outState: Bundle?) {

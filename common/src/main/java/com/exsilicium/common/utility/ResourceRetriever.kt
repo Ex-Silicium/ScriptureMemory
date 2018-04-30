@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ResourceRetriever @Inject constructor(
+class ResourceRetriever @Inject internal constructor(
         private val applicationContext: Context
 ) {
 

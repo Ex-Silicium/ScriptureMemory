@@ -2,7 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/PassageDetail"
+    android:background="@color/background_passage_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,7 +20,7 @@
         tools:text="There is therefore now no condemnation for those who are in Christ Jesus."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/text_grey"
+        android:textColor="@color/text_passage_detail"
         android:textSize="@dimen/text_size_memory_passage_content"
         style="@style/TextAppearance.AppCompat" />
 </android.support.design.widget.CoordinatorLayout>

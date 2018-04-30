@@ -20,7 +20,7 @@ abstract class BaseController(
 ) : Controller(args) {
 
     @Inject protected lateinit var resourceRetriever: ResourceRetriever
-    @Inject lateinit var toolbarService: ToolbarService
+    @Inject internal lateinit var toolbarService: ToolbarService
 
     private val disposables = CompositeDisposable()
 

@@ -46,7 +46,7 @@ internal class PassageDetailControllerTest {
                 .verifyLoading(false)
                 .verifyPassageContentVisible()
                 .verifyTextContains("Error loading passage.")
-                .verifyPassageTextColor(R.color.text_fail_red, testRule.activity.resources)
+                .verifyPassageTextColor(R.color.fail_red, testRule.activity.resources)
     }
 
     private fun launchActivity(withError: Boolean = false) {

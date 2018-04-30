@@ -16,7 +16,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @ActivityScope
-class ToolbarService @Inject constructor(
+internal class ToolbarService @Inject constructor(
 ) : ActivityLifecycleObserver() {
 
     @BindView(R2.id.toolbar) @JvmField var toolbar: Toolbar? = null
