@@ -93,17 +93,26 @@ dependencies {
     implementation project(':network')
     implementation project(':passagedetail')
     implementation project(':passagepicker')
+    implementation project(':persistence')
     implementation project(':screennavigator')
+
     implementation deps.androidSupportCard
     implementation deps.androidSupportDesign
     implementation deps.androidSupportRecyclerView
+
     implementation deps.butterknife
     kapt deps.butterknifeCompiler
     implementation deps.kotterknife
+
     kapt deps.daggerCompiler
+
+    // This line should be removed after room reaches 1.1.0 stable.
+    implementation "android.arch.core:runtime:1.1.1"
+
     implementation deps.rxAndroid
     implementation deps.rxBindingDesign
     implementation deps.rxRelay
+
     implementation deps.scriptureCore
 }
 
@@ -121,9 +130,9 @@ dependencies {
 dependencies {
     androidTestImplementation project(':testutils')
 
-    androidTestImplementation(testDeps.espresso, {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    androidTestImplementation testDeps.espressoCore
+    androidTestImplementation testDeps.espressoRules
+    androidTestImplementation testDeps.espressoRunner
 
     kaptAndroidTest deps.daggerCompiler
 }

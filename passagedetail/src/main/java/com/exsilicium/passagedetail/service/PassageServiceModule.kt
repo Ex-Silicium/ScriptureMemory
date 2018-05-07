@@ -6,9 +6,8 @@ import dagger.Provides
 import retrofit2.Retrofit
 
 @Module
-internal object PassageServiceModule {
+internal class PassageServiceModule {
 
-    @JvmStatic
     @Provides
     @ScreenScope
     fun providePassageService(retrofit: Retrofit): PassageService = retrofit.create(PassageService::class.java)

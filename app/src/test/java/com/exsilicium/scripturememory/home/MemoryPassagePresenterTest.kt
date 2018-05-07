@@ -1,13 +1,13 @@
 package com.exsilicium.scripturememory.home
 
 import com.exsilicium.mockutils.MockMemoryPassages.MOCK_PASSAGES
-import com.exsilicium.scripturememory.model.MemoryPassage
+import com.exsilicium.persistence.model.MemoryPassage
 import com.nhaarman.mockito_kotlin.inOrder
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyZeroInteractions
 import com.nhaarman.mockito_kotlin.whenever
-import io.reactivex.Single
+import io.reactivex.Flowable
 import io.reactivex.functions.Consumer
 import org.junit.Before
 import org.junit.Test
@@ -29,7 +29,7 @@ internal class MemoryPassagePresenterTest {
         whenever(mockViewModel.memoryPassagesUpdated()).thenReturn(mockPassagesConsumer)
         whenever(mockViewModel.onError()).thenReturn(mockErrorConsumer)
 
-        presenter = MemoryPassagePresenter(mock(), mock(), mockViewModel, mockRepository)
+        presenter = MemoryPassagePresenter(mock(), mockViewModel, mockRepository, mock())
     }
 
     @Test fun loadPassagesSucceeded() {
@@ -58,10 +58,10 @@ internal class MemoryPassagePresenterTest {
     }
 
     private fun setupSuccess() = MOCK_PASSAGES.apply {
-        whenever(mockRepository.getMemoryPassages()).thenReturn(Single.just(this))
+        whenever(mockRepository.getMemoryPassages()).thenReturn(Flowable.just(this))
     }
 
     private fun setupFailure(): Throwable = IOException().apply {
-        whenever(mockRepository.getMemoryPassages()).thenReturn(Single.error(this))
+        whenever(mockRepository.getMemoryPassages()).thenReturn(Flowable.error(this))
     }
 }

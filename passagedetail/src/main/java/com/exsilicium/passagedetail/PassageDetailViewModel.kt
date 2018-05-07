@@ -12,12 +12,15 @@ internal class PassageDetailViewModel @Inject constructor(
 ) {
 
     private val loadingRelay = BehaviorRelay.create<Boolean>()
-    private val errorRelay = BehaviorRelay.create<Int>()
     private val passageTextRelay = BehaviorRelay.create<String>()
+    private val passageInMyPassagesRelay = BehaviorRelay.create<Boolean>()
+    private val errorRelay = BehaviorRelay.create<Int>()
 
     fun loading(): Observable<Boolean> = loadingRelay
 
     fun passageUpdates(): Observable<String> = passageTextRelay
+
+    fun inMyPassagesUpdates(): Observable<Boolean> = passageInMyPassagesRelay
 
     fun errorUpdates(): Observable<Int> = errorRelay
 
@@ -27,6 +30,8 @@ internal class PassageDetailViewModel @Inject constructor(
         errorRelay.accept(-1)
         return passageTextRelay
     }
+
+    fun inMyPassagesUpdate(): Consumer<Boolean> = passageInMyPassagesRelay
 
     fun onError() = Consumer { t: Throwable ->
         Timber.e(t, "Error loading memory passages")

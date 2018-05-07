@@ -8,7 +8,6 @@ import dagger.android.AndroidInjector
 @ScreenScope
 @Subcomponent(
         modules = [
-            MemoryPassageScreenModule::class,
             ScreenModule::class
         ]
 )

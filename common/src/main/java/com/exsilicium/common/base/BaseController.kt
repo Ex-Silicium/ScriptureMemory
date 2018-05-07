@@ -49,6 +49,10 @@ abstract class BaseController(
     open fun onInjected() {
     }
 
+    protected fun addDisposable(disposable: Disposable) {
+        disposables.add(disposable)
+    }
+
     final override fun onCreateView(inflater: LayoutInflater, container: ViewGroup): View {
         val view = inflater.inflate(layoutRes, container, false)
         unbinder = ButterKnife.bind(this, view)

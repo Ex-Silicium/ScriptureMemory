@@ -3,8 +3,8 @@ package com.exsilicium.scripturememory.home
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import com.exsilicium.persistence.model.MemoryPassage
 import com.exsilicium.scripturememory.R
-import com.exsilicium.scripturememory.model.MemoryPassage
 import kotterknife.bindView
 
 internal class MemoryPassageViewHolder(
@@ -12,18 +12,18 @@ internal class MemoryPassageViewHolder(
         private val clickListener: MemoryPassageClickListener
 ) : RecyclerView.ViewHolder(itemView) {
 
-    private var memoryPassage: MemoryPassage? = null
+    private lateinit var memoryPassage: MemoryPassage
 
     private val reference: TextView by bindView(R.id.tv_passage_reference)
     private val content: TextView by bindView(R.id.tv_passage_content)
 
     init {
-        itemView.setOnClickListener { memoryPassage?.let { clickListener.onClicked(it) } }
+        itemView.setOnClickListener { memoryPassage.let { clickListener.onClicked(it) } }
     }
 
     fun bind(memoryPassage: MemoryPassage) {
         this.memoryPassage = memoryPassage
-        reference.text = memoryPassage.scriptureReference.toString()
+        reference.text = "${memoryPassage.reference}"
         content.text = memoryPassage.text
     }
 

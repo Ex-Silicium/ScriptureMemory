@@ -4,9 +4,9 @@ import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.exsilicium.persistence.model.MemoryPassage
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.home.MemoryPassageViewHolder.MemoryPassageClickListener
-import com.exsilicium.scripturememory.model.MemoryPassage
 
 internal class MemoryPassageAdapter(
         private val clickListener: MemoryPassageClickListener
@@ -29,7 +29,7 @@ internal class MemoryPassageAdapter(
         holder.bind(data[position])
     }
 
-    override fun getItemId(position: Int) = data[position].id.toLong()
+    override fun getItemId(position: Int) = data[position].id
 
     fun setData(memoryPassages: List<MemoryPassage>) {
         val diffResult = DiffUtil.calculateDiff(MemoryPassageCallback(data, memoryPassages))

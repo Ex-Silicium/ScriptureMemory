@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation project(':common')
     implementation project(':network')
+    implementation project(':persistence')
     implementation project(':screennavigator')
 
     implementation deps.butterknife

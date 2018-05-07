@@ -1,0 +1,45 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "1ddf819f246a51ce648a2fbc89868d8e",
+    "entities": [
+      {
+        "tableName": "memory_passage",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`reference` TEXT NOT NULL, `text` TEXT NOT NULL, `dateAdded` INTEGER NOT NULL, PRIMARY KEY(`reference`))",
+        "fields": [
+          {
+            "fieldPath": "reference",
+            "columnName": "reference",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateAdded",
+            "columnName": "dateAdded",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "reference"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1ddf819f246a51ce648a2fbc89868d8e\")"
+    ]
+  }
+}

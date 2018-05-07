@@ -6,4 +6,5 @@ include ':app',
         ':network',
         ':passagepicker',
         ':passagedetail',
+        ':persistence',
         ':testutils'
