@@ -14,13 +14,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/tv_passage_content"
-        android:layout_margin="10dp"
-        tools:text="There is therefore now no condemnation for those who are in Christ Jesus."
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_passage_detail"
-        android:textSize="@dimen/text_size_memory_passage_content"
-        style="@style/TextAppearance.AppCompat" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_passage_content"
+            android:layout_margin="10dp"
+            tools:text="There is therefore now no condemnation for those who are in Christ Jesus."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_passage_detail"
+            android:textSize="@dimen/text_size_memory_passage_content"
+            style="@style/TextAppearance.AppCompat" />
+
+        <Button
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:visibility="gone"
+            android:id="@+id/button_my_passages"
+            tools:text="Add to My Passages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

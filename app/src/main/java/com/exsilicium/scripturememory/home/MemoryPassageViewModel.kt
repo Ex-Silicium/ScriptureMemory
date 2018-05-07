@@ -1,8 +1,8 @@
 package com.exsilicium.scripturememory.home
 
 import com.exsilicium.daggerannotations.ScreenScope
+import com.exsilicium.persistence.model.MemoryPassage
 import com.exsilicium.scripturememory.R
-import com.exsilicium.scripturememory.model.MemoryPassage
 import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer

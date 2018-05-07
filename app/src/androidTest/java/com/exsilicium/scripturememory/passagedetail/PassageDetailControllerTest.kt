@@ -4,9 +4,12 @@ import android.content.Intent
 import android.support.test.InstrumentationRegistry
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import com.exsilicium.mockutils.MockMemoryPassages.MOCK_PASSAGE_JOHN_3_16
 import com.exsilicium.mockutils.MockMemoryPassages.MOCK_REFERENCE_JOHN_3_16
 import com.exsilicium.passagedetail.PassageDetailActivity
 import com.exsilicium.passagedetail.service.TestPassageService
+import com.exsilicium.persistence.database.TestPassageDao
+import com.exsilicium.persistence.model.MemoryPassage
 import com.exsilicium.scripturememory.R
 import com.exsilicium.scripturememory.application.MyApplication
 import com.exsilicium.scripturememory.application.TestApplicationComponent
@@ -20,6 +23,8 @@ import javax.inject.Inject
 internal class PassageDetailControllerTest {
 
     @Suppress("MemberVisibilityCanBePrivate")
+    @Inject lateinit var testpassageDao: TestPassageDao
+    @Suppress("MemberVisibilityCanBePrivate")
     @Inject lateinit var testPassageService: TestPassageService
 
     @get:Rule private val testRule = ActivityTestRule(PassageDetailActivity::class.java, true, false)
@@ -29,7 +34,7 @@ internal class PassageDetailControllerTest {
         (application.component as TestApplicationComponent).inject(this)
     }
 
-    @Test fun loadPassage() {
+    @Test fun loadPassageFromApi() {
         launchActivity()
 
         PassageDetailRobot.init()
@@ -39,7 +44,7 @@ internal class PassageDetailControllerTest {
                 .verifyPassageTextColor(R.color.text_grey, testRule.activity.resources)
     }
 
-    @Test fun loadPassageError() {
+    @Test fun loadPassageFromApiError() {
         launchActivity(true)
 
         PassageDetailRobot.init()
@@ -49,8 +54,19 @@ internal class PassageDetailControllerTest {
                 .verifyPassageTextColor(R.color.fail_red, testRule.activity.resources)
     }
 
-    private fun launchActivity(withError: Boolean = false) {
-        testPassageService.sendError = withError
+    @Test fun loadPassageFromLocalPersistence() {
+        launchActivity(passageInDatabase = MOCK_PASSAGE_JOHN_3_16)
+
+        PassageDetailRobot.init()
+                .verifyLoading(false)
+                .verifyPassageContentVisible()
+                .verifyTextContains("For God so loved the world")
+                .verifyPassageTextColor(R.color.text_grey, testRule.activity.resources)
+    }
+
+    private fun launchActivity(withApiError: Boolean = false, passageInDatabase: MemoryPassage? = null) {
+        testPassageService.sendError = withApiError
+        testpassageDao.containsReference = { Pair(passageInDatabase != null, passageInDatabase) }
         testRule.launchActivity(
                 Intent().putExtras(
                         PassageDetailActivity.getExtrasBundle(MOCK_REFERENCE_JOHN_3_16)

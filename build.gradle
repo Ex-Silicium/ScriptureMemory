@@ -15,6 +15,7 @@ buildscript {
         kotterknifeVersion = '0.1.0-SNAPSHOT'
         ktxVersion = '0.3'
         retrofitVersion = '2.4.0'
+        roomVersion = '1.1.0-rc1'
         rxAndroidVersion = '2.0.2'
         rxBindingVersion = '2.1.1'
         rxJavaVersion = '2.1.12'
@@ -23,8 +24,8 @@ buildscript {
         scriptureCoreVersion = '0.1.2'
         timberVersion = '4.7.0'
 
-        androidTestRunnerVersion = '1.0.1'
-        espressoVersion = '3.0.1'
+        espressoRunnerVersion = '1.0.2'
+        espressoVersion = '3.0.2'
         junitVersion = '4.12'
         mockitoKotlinVersion = '1.5.0'
     }
@@ -88,6 +89,9 @@ ext.deps = [
         retrofit                  : "com.squareup.retrofit2:retrofit:$retrofitVersion",
         retrofitGsonConverter     : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
         retrofitRxJavaAdapter     : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+        roomCompiler              : "android.arch.persistence.room:compiler:$roomVersion",
+        roomRuntime               : "android.arch.persistence.room:runtime:$roomVersion",
+        roomRxJava                : "android.arch.persistence.room:rxjava2:$roomVersion",
         rxAndroid                 : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
         rxBinding                 : "com.jakewharton.rxbinding2:rxbinding-kotlin:$rxBindingVersion",
         rxBindingDesign           : "com.jakewharton.rxbinding2:rxbinding-design-kotlin:$rxBindingVersion",
@@ -99,10 +103,11 @@ ext.deps = [
 ]
 
 ext.testDeps = [
-        androidTestRunner: "com.android.support.test:runner:$androidTestRunnerVersion",
-        espresso         : "com.android.support.test.espresso:espresso-core:$espressoVersion",
-        mockitoKotlin    : "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
-        junit            : "junit:junit:$junitVersion"
+        espressoCore  : "com.android.support.test.espresso:espresso-core:$espressoVersion",
+        espressoRules : "com.android.support.test:rules:$espressoRunnerVersion",
+        espressoRunner: "com.android.support.test:runner:$espressoRunnerVersion",
+        mockitoKotlin : "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
+        junit         : "junit:junit:$junitVersion"
 ]
 
 compileKotlin {

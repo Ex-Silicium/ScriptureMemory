@@ -22,8 +22,8 @@ import javax.inject.Singleton
 @Module(
         subcomponents = [
             HomeActivityComponent::class,
-            PassageDetailActivityComponent::class,
-            PassagePickerActivityComponent::class
+            PassagePickerActivityComponent::class,
+            PassageDetailActivityComponent::class
         ]
 )
 internal abstract class ActivityBindingModule {

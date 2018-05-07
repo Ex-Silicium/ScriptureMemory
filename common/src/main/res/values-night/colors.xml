@@ -11,6 +11,7 @@
     <color name="background_list_item_number">@color/black</color>
     <color name="background_passage_detail">@color/dark_grey</color>
 
+    <color name="textColorPrimary">@color/black</color>
     <color name="text_list_item_book">@color/light_grey</color>
     <color name="text_list_item_number">@color/white</color>
     <color name="text_filter">@color/colorPrimary</color>

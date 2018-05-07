@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 3.1.2">
+
+    <issue id="ObsoleteLintCustomCheck"
+        message="Lint found one or more custom checks that could not be loaded. The most likely reason for this is that it is using an older, incompatible or unsupported API in lint. Make sure these lint checks are updated to the new APIs. The issue registry class is com.bluelinelabs.conductor.lint.IssueRegistry. The class loading issue is com/android/tools/lint/detector/api/Detector$JavaPsiScanner: ClassLoader.defineClass1(ClassLoader.java:-2)←ClassLoader.defineClass(ClassLoader.java:763)←ClassLoader.defineClass(ClassLoader.java:642)←UrlClassLoader._defineClass(UrlClassLoader.java:276)←UrlClassLoader.defineClass(UrlClassLoader.java:272)←UrlClassLoader.findClass(UrlClassLoader.java:226)←ClassLoader.loadClass(ClassLoader.java:424)←ClassLoader.loadClass(ClassLoader.java:357)">
+        <location file="lint.jar" />
+    </issue>
+
+</issues>
