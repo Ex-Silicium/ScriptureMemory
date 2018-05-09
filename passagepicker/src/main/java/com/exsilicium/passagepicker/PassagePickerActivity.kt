@@ -19,12 +19,9 @@ class PassagePickerActivity internal constructor(
     override val rootController: BaseController = BookListController()
 
     companion object {
-        const val REQUEST_CODE_ADD_PASSAGE = 1
-
         fun addPassage(screenNavigator: ScreenNavigator) {
             screenNavigator.push(ScreenTransaction(ActivityScreen(
-                    PassagePickerActivity::class,
-                    requestCode = REQUEST_CODE_ADD_PASSAGE
+                    PassagePickerActivity::class
             )))
         }
 

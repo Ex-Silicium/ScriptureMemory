@@ -9,7 +9,7 @@ buildscript {
         androidSupportLibraryVersion = '27.1.1'
         butterknifeVersion = '9.0.0-SNAPSHOT'
         conductorVersion = '2.1.4'
-        daggerVersion = '2.15'
+        daggerVersion = '2.16'
         gsonVersion = '2.8.3'
         kotlinVersion = '1.2.41'
         kotterknifeVersion = '0.1.0-SNAPSHOT'
@@ -42,7 +42,7 @@ buildscript {
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-4"
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC7"
     id "org.jetbrains.kotlin.jvm" version "1.2.41"
 }
 
@@ -55,7 +55,7 @@ allprojects {
 }
 
 detekt {
-    version = "1.0.0.RC6-4"
+    version = "1.0.0.RC7"
     profile("main") {
         output = "$projectDir/build/outputs/reports/detekt"
         config = "$projectDir/detekt.yml"

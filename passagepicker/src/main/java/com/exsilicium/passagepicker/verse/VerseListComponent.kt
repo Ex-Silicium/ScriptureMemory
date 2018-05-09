@@ -23,12 +23,10 @@ internal interface VerseListComponent : AndroidInjector<VerseListController> {
     abstract class Builder : AndroidInjector.Builder<VerseListController>() {
 
         @BindsInstance
-        @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
         abstract fun bindBook(book: Book)
 
         @BindsInstance
         @Named(KEY_CHAPTER)
-        @Suppress("OptionalAbstractKeyword") // See https://github.com/arturbosch/detekt/issues/783
         abstract fun bindChapter(chapter: Int)
 
         override fun seedInstance(instance: VerseListController) {

@@ -28,8 +28,6 @@ interface TestPassageDetailActivityComponent : AndroidInjector<PassageDetailActi
     abstract class Builder : AndroidInjector.Builder<PassageDetailActivity>() {
 
         @BindsInstance
-        @Suppress("OptionalAbstractKeyword")
-        // See https://github.com/arturbosch/detekt/issues/783. This should be fixed in the next detekt release.
         abstract fun bindReference(scriptureReference: ScriptureReference)
 
         override fun seedInstance(instance: PassageDetailActivity) {

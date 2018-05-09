@@ -1,6 +1,5 @@
 package com.exsilicium.scripturememory.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
@@ -10,7 +9,6 @@ import android.widget.TextView
 import butterknife.BindView
 import com.exsilicium.common.base.BaseController
 import com.exsilicium.common.ui.Constants.TIMEOUT_DEFAULT_MILLIS
-import com.exsilicium.passagepicker.PassagePickerActivity
 import com.exsilicium.passagepicker.PassagePickerActivity.Companion.addPassage
 import com.exsilicium.screennavigator.ScreenNavigator
 import com.exsilicium.scripturememory.R
@@ -87,14 +85,6 @@ internal class MemoryPassageController : BaseController() {
     override fun onRestoreViewState(view: View, savedViewState: Bundle) {
         super.onRestoreViewState(view, savedViewState)
         recyclerView.layoutManager.onRestoreInstanceState(savedViewState.getParcelable(KEY_LIST_STATE))
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == PassagePickerActivity.REQUEST_CODE_ADD_PASSAGE) {
-            TODO("Check resultCode and update with added passage")
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
     }
 
     companion object {
