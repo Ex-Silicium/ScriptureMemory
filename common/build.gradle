@@ -50,7 +50,7 @@ dependencies {
     kapt deps.daggerCompiler
 
     api deps.rxBinding
-    api deps.rxJava
+    api deps.rxJava // todo is this necessary or is it transitive from rxKotlin?
     api deps.rxKotlin
     implementation deps.scriptureCore
     api deps.timber

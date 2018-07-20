@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_widget"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/arrow_back"
+            android:contentDescription="@string/content_description_previous_passage"/>
+
+        <view
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_passage_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textColor="@color/text_passage_detail"
+            android:textSize="@dimen/text_size_memory_passage_content"
+            tools:text="For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life. (ESV)"/>
+
+        <TextView
+            android:id="@+id/tv_passage_reference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_passage_detail"
+            android:textSize="@dimen/text_size_memory_passage_reference"
+            tools:text="John 3:16"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/btn_forward"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <view
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/arrow_forward"
+            android:contentDescription="@string/content_description_next_passage"/>
+    </LinearLayout>
+</LinearLayout>

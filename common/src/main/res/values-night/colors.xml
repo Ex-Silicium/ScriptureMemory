@@ -19,4 +19,5 @@
     <color name="text_toolbar">@color/black</color>
     <color name="text_home_message">@color/black</color>
     <color name="text_passage_detail">@color/light_grey</color>
+    <color name="text_passage_reference">@color/dark_grey</color>
 </resources>

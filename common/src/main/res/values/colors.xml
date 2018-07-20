@@ -19,6 +19,7 @@
     <color name="background_list_item_book">@color/white</color>
     <color name="background_list_item_number">@color/white</color>
     <color name="background_passage_detail">@color/old_paper</color>
+    <color name="background_widget">#33F8ECC2</color>
 
     <color name="textColorPrimary">@color/white</color>
     <color name="text_list_item_book">@color/black</color>
@@ -28,4 +29,5 @@
     <color name="text_toolbar">@color/white</color>
     <color name="text_home_message">@color/white</color>
     <color name="text_passage_detail">@color/text_grey</color>
+    <color name="text_passage_reference">@color/black</color>
 </resources>

@@ -48,7 +48,6 @@ dependencies {
     kapt deps.daggerCompiler
 
     implementation deps.rxAndroid
-    implementation deps.rxBinding
     implementation deps.rxRelay
 
     implementation deps.scriptureCore

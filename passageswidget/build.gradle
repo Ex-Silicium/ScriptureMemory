@@ -38,28 +38,17 @@ android {
 
 dependencies {
     implementation project(':common')
-    implementation project(':screennavigator')
-    implementation project(':squaretextview')
-
-    // This is only needed because something else depends upon an out-dated version of support media app compat.
-    implementation deps.androidSupportMediaCompat
-    implementation deps.androidSupportRecyclerView
-    // This is only needed because something else depends upon an out-dated version of support V4.
-    implementation deps.androidSupportV4
+    implementation project(':persistence')
 
     implementation deps.butterknife
     kapt deps.butterknifeCompiler
-    implementation deps.kotterknife
 
     kapt deps.daggerCompiler
-
-    implementation deps.rxAndroid
-    implementation deps.rxRelay
 
     implementation deps.scriptureCore
 }
 
-dependencies {
-    testImplementation testDeps.junit
-    testImplementation testDeps.mockitoKotlin
-}
+//dependencies {
+//    testImplementation testDeps.junit
+//    testImplementation testDeps.mockitoKotlin
+//}
