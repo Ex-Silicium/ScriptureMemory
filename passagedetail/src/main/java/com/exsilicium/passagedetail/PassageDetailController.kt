@@ -5,6 +5,7 @@ import android.widget.TextView
 import butterknife.BindView
 import com.exsilicium.common.base.BaseController
 import com.exsilicium.common.ui.Constants.TIMEOUT_DEFAULT_MILLIS
+import com.exsilicium.persistence.MemoryPassageRepositoryDetailsDelegate
 import com.exsilicium.scripture.shared.model.ScriptureReference
 import com.jakewharton.rxbinding2.view.RxView.clicks
 import com.jakewharton.rxbinding2.view.visibility

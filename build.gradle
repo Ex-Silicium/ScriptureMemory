@@ -42,7 +42,7 @@ buildscript {
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC7"
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC8"
     id "org.jetbrains.kotlin.jvm" version "1.2.41"
 }
 
@@ -55,7 +55,7 @@ allprojects {
 }
 
 detekt {
-    version = "1.0.0.RC7"
+    version = "1.0.0.RC8"
     profile("main") {
         output = "$projectDir/build/outputs/reports/detekt"
         config = "$projectDir/detekt.yml"

@@ -7,11 +7,13 @@ import com.exsilicium.scripturememory.activity.TestActivityBindingModule
 import com.exsilicium.scripturememory.home.MemoryPassageControllerTest
 import com.exsilicium.scripturememory.passagedetail.PassageDetailControllerTest
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
         modules = [
+            AndroidInjectionModule::class,
             ApplicationModule::class,
             TestActivityBindingModule::class,
             TestNetworkModule::class,

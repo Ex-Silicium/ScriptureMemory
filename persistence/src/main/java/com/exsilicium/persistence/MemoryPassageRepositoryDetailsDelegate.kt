@@ -1,4 +1,4 @@
-package com.exsilicium.passagedetail
+package com.exsilicium.persistence
 
 import com.exsilicium.persistence.database.PassageDao
 import com.exsilicium.persistence.model.MemoryPassage
@@ -8,7 +8,7 @@ import io.reactivex.Maybe
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-internal class MemoryPassageRepositoryDetailsDelegate @Inject constructor(
+class MemoryPassageRepositoryDetailsDelegate @Inject constructor(
         private val passageDao: PassageDao
 ) {
 

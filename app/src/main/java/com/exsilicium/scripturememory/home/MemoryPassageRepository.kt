@@ -12,7 +12,6 @@ import javax.inject.Singleton
 internal class MemoryPassageRepository @Inject constructor(
         private val passageDaoProvider: Provider<PassageDao>
 ) {
-
     fun getMemoryPassages(): Flowable<List<MemoryPassage>> {
         return passageDaoProvider.get().getMemoryPassages()
                 .subscribeOn(Schedulers.io())

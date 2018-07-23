@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "113571554834",
+    "firebase_url": "https://scripture-memory.firebaseio.com",
+    "project_id": "scripture-memory",
+    "storage_bucket": "scripture-memory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113571554834:android:ed53ee8213aa7442",
+        "android_client_info": {
+          "package_name": "com.exsilicium.scripturememory.free.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113571554834-67bk3i0l58f88chfg0s94vv8n7p0k4ip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exsilicium.scripturememory.free.debug",
+            "certificate_hash": "612b6da58f1296c488d50b8e53b9fddb18c1f489"
+          }
+        },
+        {
+          "client_id": "113571554834-c0d2vadiqlgink059rs0fns7qne2g0jd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTnQ5keS_ZOcrHVqy5nfdCvHkVt9jAw5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113571554834-c0d2vadiqlgink059rs0fns7qne2g0jd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113571554834:android:9151ce458bdb4f13",
+        "android_client_info": {
+          "package_name": "com.exsilicium.scripturememory.full.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113571554834-ouuj9kp3pdld932uqc595k63v0scc46s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exsilicium.scripturememory.full.debug",
+            "certificate_hash": "612b6da58f1296c488d50b8e53b9fddb18c1f489"
+          }
+        },
+        {
+          "client_id": "113571554834-c0d2vadiqlgink059rs0fns7qne2g0jd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTnQ5keS_ZOcrHVqy5nfdCvHkVt9jAw5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113571554834-c0d2vadiqlgink059rs0fns7qne2g0jd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
